@@ -9,8 +9,8 @@ Starting with top-level command (program):
 - parse env: look for environment variables (for this command)
 - process implied: set any implied option values (for this command)
 - if the first arg is a subcommand
-    - call `preSubcommand` hooks
-    - pass remaining arguments to subcommand, and process same way
+  - call `preSubcommand` hooks
+  - pass remaining arguments to subcommand, and process same way
 
 Once reach final (leaf) command:
 

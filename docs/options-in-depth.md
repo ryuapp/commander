@@ -1,4 +1,5 @@
 <!-- omit from toc -->
+
 # Options in Depth
 
 The README covers declaring and using options, and mostly parsing will work the way you and your users expect. This page covers some special cases
@@ -18,9 +19,9 @@ Certain options take a varying number of arguments:
 
 ```js
 program
-   .option('-c, --compress [percentage]') // 0 or 1
-   .option('--preprocess <file...>') // 1 or more
-   .option('--test [name...]') // 0 or more
+  .option("-c, --compress [percentage]") // 0 or 1
+  .option("--preprocess <file...>") // 1 or more
+  .option("--test [name...]"); // 0 or more
 ```
 
 This section uses examples with options taking 0 or 1 arguments, but the discussions also apply to variadic options taking more arguments.
@@ -36,12 +37,14 @@ intend the argument following the option as a command or command-argument.
 
 ```js
 program
-  .name('cook')
-  .argument('[technique]')
-  .option('-i, --ingredient [ingredient]', 'add cheese or given ingredient')
+  .name("cook")
+  .argument("[technique]")
+  .option("-i, --ingredient [ingredient]", "add cheese or given ingredient")
   .action((technique, options) => {
     console.log(`technique: ${technique}`);
-    const ingredient = (options.ingredient === true) ? 'cheese' : options.ingredient;
+    const ingredient = (options.ingredient === true)
+      ? "cheese"
+      : options.ingredient;
     console.log(`ingredient: ${ingredient}`);
   });
 
@@ -81,7 +84,7 @@ If you want to avoid your users needing to learn when to use `--`, there are a f
 Rather than trying to teach your users what `--` does, you could just make it part of your syntax.
 
 ```js
-program.usage('[options] -- [technique]');
+program.usage("[options] -- [technique]");
 ```
 
 ```sh
@@ -107,7 +110,7 @@ Commander follows the GNU convention for parsing and allows options before or af
 So by putting the options last, the command-arguments do not get confused with the option-arguments.
 
 ```js
-program.usage('[technique] [options]');
+program.usage("[technique] [options]");
 ```
 
 ```sh
@@ -129,12 +132,14 @@ This is a bit more radical, but completely avoids the parsing ambiguity!
 
 ```js
 program
-  .name('cook')
-  .option('-t, --technique <technique>', 'cooking technique')
-  .option('-i, --ingredient [ingredient]', 'add cheese or given ingredient')
+  .name("cook")
+  .option("-t, --technique <technique>", "cooking technique")
+  .option("-i, --ingredient [ingredient]", "add cheese or given ingredient")
   .action((options) => {
     console.log(`technique: ${options.technique}`);
-    const ingredient = (options.ingredient === true) ? 'cheese' : options.ingredient;
+    const ingredient = (options.ingredient === true)
+      ? "cheese"
+      : options.ingredient;
     console.log(`ingredient: ${ingredient}`);
   });
 ```
@@ -155,7 +160,7 @@ This means that by default you can not combine short options which may take an a
 
 ```js
 program
-  .name('collect')
+  .name("collect")
   .option("-o, --other [count]", "other serving(s)")
   .option("-v, --vegan [count]", "vegan serving(s)")
   .option("-l, --halal [count]", "halal serving(s)");

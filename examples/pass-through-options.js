@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
-const { Command } = require('commander');
+const { Command } = require("commander");
 const program = new Command();
 
 program
-  .argument('<utility>')
-  .argument('[args...]')
+  .argument("<utility>")
+  .argument("[args...]")
   .passThroughOptions()
-  .option('-d, --dry-run')
+  .option("-d, --dry-run")
   .action((utility, args, options) => {
-    const action = options.dryRun ? 'Would run' : 'Running';
-    console.log(`${action}: ${utility} ${args.join(' ')}`);
+    const action = options.dryRun ? "Would run" : "Running";
+    console.log(`${action}: ${utility} ${args.join(" ")}`);
   });
 
 program.parse();

@@ -1,4 +1,4 @@
-const commander = require('commander');
+const commander = require("commander");
 const program = new commander.Command();
 
 // This example shows a simple use of configureHelp.
@@ -12,17 +12,17 @@ program.configureHelp({
 });
 
 program.command(
-  'zebra <herd-size>',
-  'African equines with distinctive black-and-white striped coats',
+  "zebra <herd-size>",
+  "African equines with distinctive black-and-white striped coats",
 );
 program.command(
-  'aardvark [colour]',
-  'medium-sized, burrowing, nocturnal mammal',
+  "aardvark [colour]",
+  "medium-sized, burrowing, nocturnal mammal",
 );
 program
-  .command('beaver', 'large, semiaquatic rodent')
-  .option('--pond')
-  .option('--river');
+  .command("beaver", "large, semiaquatic rodent")
+  .option("--pond")
+  .option("--river");
 
 program.parse();
 

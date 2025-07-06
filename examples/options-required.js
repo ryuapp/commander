@@ -5,10 +5,10 @@
 //    You may specify a required (mandatory) option using `.requiredOption`.
 //    The option must be specified on the command line, or by having a default value.
 
-const commander = require('commander');
+const commander = require("commander");
 const program = new commander.Command();
 
-program.requiredOption('-c, --cheese <type>', 'pizza must have cheese');
+program.requiredOption("-c, --cheese <type>", "pizza must have cheese");
 
 program.parse();
 

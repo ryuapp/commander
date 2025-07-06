@@ -2,25 +2,25 @@
 
 // This example shows using addHelpText.
 
-const { Command } = require('commander');
+const { Command } = require("commander");
 const program = new Command();
 
-program.name('awesome');
+program.name("awesome");
 
 program
-  .addHelpText('beforeAll', 'A W E S O M E\n')
-  .addHelpText('afterAll', (context) => {
+  .addHelpText("beforeAll", "A W E S O M E\n")
+  .addHelpText("afterAll", (context) => {
     if (context.error) {
-      return '\nHelp being displayed for an error';
+      return "\nHelp being displayed for an error";
     }
-    return '\nSee web site for further help';
+    return "\nSee web site for further help";
   });
 
 program
-  .command('extra')
-  .addHelpText('before', 'Note: the extra command does not do anything')
+  .command("extra")
+  .addHelpText("before", "Note: the extra command does not do anything")
   .addHelpText(
-    'after',
+    "after",
     `
 Examples:
   awesome extra --help

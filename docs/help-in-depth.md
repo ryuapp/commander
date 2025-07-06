@@ -8,7 +8,7 @@ Example file: [configure-help.js](../examples/configure-help.js)
 ```js
 program.configureHelp({
   sortSubcommands: true,
-  subcommandTerm: (cmd) => cmd.name() // Just show the name, instead of short usage.
+  subcommandTerm: (cmd) => cmd.name(), // Just show the name, instead of short usage.
 });
 ```
 
@@ -28,6 +28,7 @@ The data properties are:
 - `sortOptions`: sort the options alphabetically
 
 Example files:
+
 - [configure-help.js](../examples/configure-help.js)
 - [global-options-nested.js](../examples/global-options-nested.js)
 
@@ -39,23 +40,22 @@ The stringify routines take an object (`Command` or `Option` or `Argument`) and 
 
 ```js
 program.configureHelp({
-  subcommandTerm: (cmd) => cmd.name() // just show the name instead of usage
+  subcommandTerm: (cmd) => cmd.name(), // just show the name instead of usage
 });
 ```
 
 The style routines take just a string. For example to make the titles bold:
 
 ```js
-import { styleText } from 'node:util';
+import { styleText } from "node:util";
 program.configureHelp({
-   styleTitle: (str) => styleText('bold', str)
+  styleTitle: (str) => styleText("bold", str),
 });
 ```
 
 There is built-in support for detecting whether the output has colors, and respecting environment variables for `NO_COLOR`, `FORCE_COLOR`, and `CLIFORCE_COLOR`. The style routines always get called and color is stripped afterwards if needed using `Command.configureOutput().stripColor()`.
 
-This annotated help output shows where the stringify and style routines are used. The first output is for a program with subcommands, and the second output is for a subcommand with arguments. 
-
+This annotated help output shows where the stringify and style routines are used. The first output is for a program with subcommands, and the second output is for a subcommand with arguments.
 
 ```text
 Usage: color-help [options] [command]
@@ -77,21 +77,21 @@ Commands:
   <-b-> <---c---> <--d-->
 ```
 
-|  | stringify(object) | style(string) | default style |
-| - | - | - | - |
-| 1 | | styleTitle | |
-| 2 | commandUsage | styleUsage | a, b, c, d |
-| 3 | commandDescription | styleCommandDescription | styleDescriptionText |
-| 4 | optionTerm | styleOptionTerm | styleOptionText |
-| 5 | optionDescription | styleOptionDescription | styleDescriptionText |
-| 6 | subcommandTerm | styleSubcommandTerm | b, c, d |
-| 7 | subcommandDescription | styleSubcommandDescription |  styleDescriptionText|
-| 8 | argumentTerm | styleArgumentTerm | styleArgumentText |
-| 9 | argumentDescription | styleArgumentDescription | styleDescriptionText |
-| a | | styleCommandText | |
-| b | | styleOptionText | |
-| c | | styleSubcommandText | |
-| d | | styleArgumentText | |
+|   | stringify(object)     | style(string)              | default style        |
+| - | --------------------- | -------------------------- | -------------------- |
+| 1 |                       | styleTitle                 |                      |
+| 2 | commandUsage          | styleUsage                 | a, b, c, d           |
+| 3 | commandDescription    | styleCommandDescription    | styleDescriptionText |
+| 4 | optionTerm            | styleOptionTerm            | styleOptionText      |
+| 5 | optionDescription     | styleOptionDescription     | styleDescriptionText |
+| 6 | subcommandTerm        | styleSubcommandTerm        | b, c, d              |
+| 7 | subcommandDescription | styleSubcommandDescription | styleDescriptionText |
+| 8 | argumentTerm          | styleArgumentTerm          | styleArgumentText    |
+| 9 | argumentDescription   | styleArgumentDescription   | styleDescriptionText |
+| a |                       | styleCommandText           |                      |
+| b |                       | styleOptionText            |                      |
+| c |                       | styleSubcommandText        |                      |
+| d |                       | styleArgumentText          |                      |
 
 ```text
 Usage: color-help print [options] <files...>
@@ -124,4 +124,3 @@ Example files:
 - `formatItem`: [help-centered.mjs](../examples/help-centered.mjs)
 - `formatItem`: [man-style-help.mjs](../examples/man-style-help.mjs)
 - `boxwrap`: [color-help-replacement.mjs](../examples/color-help-replacement.mjs)
-

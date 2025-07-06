@@ -2,12 +2,12 @@
 
 The command line arguments are made up of options, option-arguments, commands, and command-arguments.
 
-| Term | Explanation |
-| --- | --- |
-| option | an argument which is a `-` followed by a character, or `--` followed by a word (or hyphenated words), like `-s` or `--short` |
-| option-argument| some options can take an argument |
-| command | a program or command can have subcommands |
-| command-argument | argument for the command (and not an option or option-argument) |
+| Term             | Explanation                                                                                                                  |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| option           | an argument which is a `-` followed by a character, or `--` followed by a word (or hyphenated words), like `-s` or `--short` |
+| option-argument  | some options can take an argument                                                                                            |
+| command          | a program or command can have subcommands                                                                                    |
+| command-argument | argument for the command (and not an option or option-argument)                                                              |
 
 For example:
 

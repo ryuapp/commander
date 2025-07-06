@@ -3,13 +3,13 @@
 // This is used as an example in the README for:
 //    Default option value
 
-const commander = require('commander');
+const commander = require("commander");
 const program = new commander.Command();
 
 program.option(
-  '-c, --cheese <type>',
-  'Add the specified type of cheese',
-  'blue',
+  "-c, --cheese <type>",
+  "Add the specified type of cheese",
+  "blue",
 );
 
 program.parse();

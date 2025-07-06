@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
-const { Command } = require('commander');
+const { Command } = require("commander");
 const program = new Command();
 
-program.enablePositionalOptions().option('-p, --progress');
+program.enablePositionalOptions().option("-p, --progress");
 
 program
-  .command('upload <file>')
-  .option('-p, --port <number>', 'port number', 80)
+  .command("upload <file>")
+  .option("-p, --port <number>", "port number", 80)
   .action((file, options) => {
-    if (program.opts().progress) console.log('Starting upload...');
+    if (program.opts().progress) console.log("Starting upload...");
     console.log(`Uploading ${file} to port ${options.port}`);
-    if (program.opts().progress) console.log('Finished upload');
+    if (program.opts().progress) console.log("Finished upload");
   });
 
 program.parse();

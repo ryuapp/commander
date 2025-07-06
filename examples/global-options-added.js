@@ -9,14 +9,14 @@
 // (A different pattern for a "global" option is to add it to the root command, rather
 // than to the subcommand. See global-options-nested.js.)
 
-const { Command } = require('commander');
+const { Command } = require("commander");
 
 // Common options can be added when subcommands are created by using a custom subclass.
 // If the options are unsorted in the help, these will appear first.
 class MyRootCommand extends Command {
   createCommand(name) {
     const cmd = new Command(name);
-    cmd.option('-v, --verbose', 'use verbose logging');
+    cmd.option("-v, --verbose", "use verbose logging");
     return cmd;
   }
 }
@@ -24,23 +24,23 @@ class MyRootCommand extends Command {
 const program = new MyRootCommand();
 
 program
-  .command('print')
-  .option('--a4', 'Use A4 sized paper')
+  .command("print")
+  .option("--a4", "Use A4 sized paper")
   .action((options) => {
-    console.log('print options: %O', options);
+    console.log("print options: %O", options);
   });
 
 program
-  .command('serve')
-  .option('-p, --port <number>', 'port number for server')
+  .command("serve")
+  .option("-p, --port <number>", "port number for server")
   .action((options) => {
-    console.log('serve options: %O', options);
+    console.log("serve options: %O", options);
   });
 
 // Common options can be added manually after setting up program and subcommands.
 // If the options are unsorted in the help, these will appear last.
 program.commands.forEach((cmd) => {
-  cmd.option('-d, --debug');
+  cmd.option("-d, --debug");
 });
 
 program.parse();

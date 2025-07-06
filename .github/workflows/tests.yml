@@ -16,16 +16,16 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        cache: 'npm'
-        node-version: ${{ matrix.node-version }}
-    # Use separate run commands so command status handled correctly on Windows
-    - name: npm install
-      run: npm ci
-    - name: npm test
-      run: npm test
-    - name: npm run check
-      run: npm run check
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          cache: "npm"
+          node-version: ${{ matrix.node-version }}
+      # Use separate run commands so command status handled correctly on Windows
+      - name: npm install
+        run: npm ci
+      - name: npm test
+        run: npm test
+      - name: npm run check
+        run: npm run check

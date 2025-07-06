@@ -4,14 +4,14 @@
 //    Custom option processing
 //    You may specify a function to do custom processing of option values.
 
-const commander = require('commander');
+const commander = require("commander");
 const program = new commander.Command();
 
 function myParseInt(value) {
   // parseInt takes a string and a radix
   const parsedValue = parseInt(value, 10);
   if (isNaN(parsedValue)) {
-    throw new commander.InvalidArgumentError('Not a number.');
+    throw new commander.InvalidArgumentError("Not a number.");
   }
   return parsedValue;
 }
@@ -25,20 +25,20 @@ function collect(value, previous) {
 }
 
 function commaSeparatedList(value) {
-  return value.split(',');
+  return value.split(",");
 }
 
 program
-  .option('-f, --float <number>', 'float argument', parseFloat)
-  .option('-i, --integer <number>', 'integer argument', myParseInt)
+  .option("-f, --float <number>", "float argument", parseFloat)
+  .option("-i, --integer <number>", "integer argument", myParseInt)
   .option(
-    '-v, --verbose',
-    'verbosity that can be increased',
+    "-v, --verbose",
+    "verbosity that can be increased",
     increaseVerbosity,
     0,
   )
-  .option('-c, --collect <value>', 'repeatable value', collect, [])
-  .option('-l, --list <items>', 'comma separated list', commaSeparatedList);
+  .option("-c, --collect <value>", "repeatable value", collect, [])
+  .option("-l, --list <items>", "comma separated list", commaSeparatedList);
 
 program.parse();
 

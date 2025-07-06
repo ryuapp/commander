@@ -4,14 +4,14 @@
 //    Custom argument processing
 //    You may specify a function to do custom processing of argument values.
 
-const commander = require('commander');
+const commander = require("commander");
 const program = new commander.Command();
 
 function myParseInt(value) {
   // parseInt takes a string and a radix
   const parsedValue = parseInt(value, 10);
   if (isNaN(parsedValue)) {
-    throw new commander.InvalidArgumentError('Not a number.');
+    throw new commander.InvalidArgumentError("Not a number.");
   }
   return parsedValue;
 }
@@ -22,16 +22,16 @@ function mySum(value, total) {
 }
 
 program
-  .command('add')
-  .argument('<first>', 'integer argument', myParseInt)
-  .argument('[second]', 'integer argument', myParseInt, 1000)
+  .command("add")
+  .argument("<first>", "integer argument", myParseInt)
+  .argument("[second]", "integer argument", myParseInt, 1000)
   .action((first, second) => {
     console.log(`${first} + ${second} = ${first + second}`);
   });
 
 program
-  .command('sum')
-  .argument('<value...>', 'values to be summed', mySum, 0)
+  .command("sum")
+  .argument("<value...>", "values to be summed", mySum, 0)
   .action((total) => {
     console.log(`sum is ${total}`);
   });

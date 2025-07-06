@@ -1,4 +1,4 @@
-const commander = require('commander');
+const commander = require("commander");
 const program = new commander.Command();
 
 function errorColor(str) {
@@ -14,7 +14,7 @@ program.configureOutput({
   outputError: (str, write) => write(errorColor(str)),
 });
 
-program.version('1.2.3').option('-c, --compress').command('sub-command');
+program.version("1.2.3").option("-c, --compress").command("sub-command");
 
 program.parse();
 

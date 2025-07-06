@@ -2,17 +2,17 @@
 
 // This is used as an example in the README for variadic options.
 
-const commander = require('commander');
+const commander = require("commander");
 const program = new commander.Command();
 
 program
-  .option('-n, --number <value...>', 'specify numbers')
-  .option('-l, --letter [value...]', 'specify letters');
+  .option("-n, --number <value...>", "specify numbers")
+  .option("-l, --letter [value...]", "specify letters");
 
 program.parse();
 
-console.log('Options: ', program.opts());
-console.log('Remaining arguments: ', program.args);
+console.log("Options: ", program.opts());
+console.log("Remaining arguments: ", program.args);
 
 // Try the following:
 //    node options-variadic.js -n 1 2 3 --letter a b c

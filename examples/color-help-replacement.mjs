@@ -1,12 +1,12 @@
-import stripAnsi from 'strip-ansi';
-import wrapAnsi from 'wrap-ansi';
+import stripAnsi from "strip-ansi";
+import wrapAnsi from "wrap-ansi";
 import {
-  default as chalkStdOut,
   chalkStderr as chalkStdErr,
+  default as chalkStdOut,
   supportsColor as supportsColorStdout,
   supportsColorStderr,
-} from 'chalk';
-import { Command, Help } from 'commander';
+} from "chalk";
+import { Command, Help } from "commander";
 
 // Replace default color and wrapping support with Chalk packages as an example of
 // a deep replacement of layout and style support.
@@ -84,25 +84,25 @@ program.configureOutput({
   stripColor: (str) => stripAnsi(str),
 });
 
-program.description('program description '.repeat(10));
+program.description("program description ".repeat(10));
 program
-  .option('-s', 'short description')
-  .option('--long <number>', 'long description '.repeat(10))
-  .option('--color', 'force color output') // implemented by chalk
-  .option('--no-color', 'disable color output'); // implemented by chalk
+  .option("-s", "short description")
+  .option("--long <number>", "long description ".repeat(10))
+  .option("--color", "force color output") // implemented by chalk
+  .option("--no-color", "disable color output"); // implemented by chalk
 
-program.addHelpText('after', (context) => {
+program.addHelpText("after", (context) => {
   const chalk = context.error ? chalkStdErr : chalkStdOut;
-  return chalk.italic('\nThis is additional help text.');
+  return chalk.italic("\nThis is additional help text.");
 });
 
-program.command('esses').description('sssss '.repeat(33));
+program.command("esses").description("sssss ".repeat(33));
 
 program
-  .command('print')
-  .description('print files')
-  .argument('<files...>', 'files to queue for printing')
-  .option('--double-sided', 'print on both sides');
+  .command("print")
+  .description("print files")
+  .argument("<files...>", "files to queue for printing")
+  .option("--double-sided", "print on both sides");
 
 program.parse();
 
