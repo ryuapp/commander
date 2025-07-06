@@ -14,6 +14,26 @@ const execFileAsync = util.promisify(childProcess.execFile);
 const testOrSkipOnWindows = process.platform === "win32" ? test.skip : test;
 const pm = path.join(__dirname, "./fixtures/pm");
 
+// Ensure fixture files have execute permissions
+beforeAll(async () => {
+  const fixtureFiles = [
+    "pm-default",
+    "pm-install", 
+    "pm-silent",
+    "pm-listen",
+    "pm-search"
+  ];
+  
+  for (const file of fixtureFiles) {
+    const filePath = path.join(__dirname, "fixtures", file);
+    try {
+      await execFileAsync("chmod", ["+x", filePath]);
+    } catch (error) {
+      // Ignore chmod errors on Windows or if file doesn't exist
+    }
+  }
+});
+
 test("when subcommand file missing then error", () => {
   expect.assertions(1);
   return execFileAsync("node", [pm, "list"]).catch((err) => {
