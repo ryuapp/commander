@@ -1,4 +1,5 @@
 const childProcess = require("child_process");
+const fs = require("fs");
 const path = require("path");
 const util = require("util");
 const execFileAsync = util.promisify(childProcess.execFile);
@@ -12,6 +13,26 @@ const execFileAsync = util.promisify(childProcess.execFile);
 
 const testOrSkipOnWindows = process.platform === "win32" ? test.skip : test;
 const pm = path.join(__dirname, "./fixtures/pm");
+
+// Ensure fixture files have execute permissions
+beforeAll(async () => {
+  const fixtureFiles = [
+    "pm-default",
+    "pm-install",
+    "pm-silent",
+    "pm-listen",
+    "pm-search",
+  ];
+
+  for (const file of fixtureFiles) {
+    const filePath = path.join(__dirname, "fixtures", file);
+    try {
+      await execFileAsync("chmod", ["+x", filePath]);
+    } catch (error) {
+      // Ignore chmod errors on Windows or if file doesn't exist
+    }
+  }
+});
 
 test("when subcommand file missing then error", () => {
   expect.assertions(1);
@@ -74,18 +95,69 @@ test("when subcommand target executablefile has suffix .js then lookup succeeds"
 testOrSkipOnWindows(
   "when subcommand file is symlink then lookup succeeds",
   async () => {
-    const pmlink = path.join(__dirname, "fixtures", "pmlink");
-    const { stdout } = await execFileAsync("node", [pmlink, "install"]);
-    expect(stdout).toBe("install\n");
+    const fixturesDir = path.join(__dirname, "fixtures");
+    const pmlink = path.join(fixturesDir, "pmlink");
+    const pmlinkInstall = path.join(fixturesDir, "pmlink-install");
+
+    // Create symlinks before test
+    if (fs.existsSync(pmlink)) fs.unlinkSync(pmlink);
+    if (fs.existsSync(pmlinkInstall)) fs.unlinkSync(pmlinkInstall);
+    fs.symlinkSync("./pm", pmlink);
+    fs.symlinkSync("./pm-install", pmlinkInstall);
+
+    // Add execute permissions using child_process
+    await execFileAsync("chmod", ["+x", pmlink]);
+    await execFileAsync("chmod", ["+x", pmlinkInstall]);
+
+    try {
+      const { stdout } = await execFileAsync("node", [pmlink, "install"]);
+      expect(stdout).toBe("install\n");
+    } finally {
+      // Cleanup symlinks after test
+      if (fs.existsSync(pmlink)) fs.unlinkSync(pmlink);
+      if (fs.existsSync(pmlinkInstall)) fs.unlinkSync(pmlinkInstall);
+    }
   },
 );
 
 testOrSkipOnWindows(
   "when subcommand file is double symlink then lookup succeeds",
   async () => {
-    const pmlink = path.join(__dirname, "fixtures", "another-dir", "pm");
-    const { stdout } = await execFileAsync("node", [pmlink, "install"]);
-    expect(stdout).toBe("install\n");
+    const fixturesDir = path.join(__dirname, "fixtures");
+    const pmFile = path.join(fixturesDir, "pm");
+    const otherDirPm = path.join(fixturesDir, "other-dir", "pm");
+    const anotherDirPm = path.join(fixturesDir, "another-dir", "pm");
+
+    // Create double symlinks before test
+    // Ensure directories exist
+    fs.mkdirSync(path.dirname(otherDirPm), { recursive: true });
+    fs.mkdirSync(path.dirname(anotherDirPm), { recursive: true });
+
+    if (fs.existsSync(otherDirPm)) fs.unlinkSync(otherDirPm);
+    if (fs.existsSync(anotherDirPm)) fs.unlinkSync(anotherDirPm);
+    fs.symlinkSync(pmFile, otherDirPm);
+    fs.symlinkSync(otherDirPm, anotherDirPm);
+
+    // Add execute permissions using child_process
+    await execFileAsync("chmod", ["+x", otherDirPm]);
+    await execFileAsync("chmod", ["+x", anotherDirPm]);
+
+    try {
+      const { stdout } = await execFileAsync("node", [anotherDirPm, "install"]);
+      expect(stdout).toBe("install\n");
+    } finally {
+      // Cleanup symlinks and directories after test
+      if (fs.existsSync(anotherDirPm)) fs.unlinkSync(anotherDirPm);
+      if (fs.existsSync(otherDirPm)) fs.unlinkSync(otherDirPm);
+
+      // Remove directories if empty
+      try {
+        fs.rmdirSync(path.dirname(anotherDirPm));
+        fs.rmdirSync(path.dirname(otherDirPm));
+      } catch (e) {
+        // Ignore errors if directories are not empty or don't exist
+      }
+    }
   },
 );
 
