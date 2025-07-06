@@ -53,5 +53,6 @@ jobs:
       #   make bootstrap
       #   make release
 
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+      # TODO: If you make this repo public, uncomment following:
+      # - name: Perform CodeQL Analysis
+      #   uses: github/codeql-action/analyze@v3
