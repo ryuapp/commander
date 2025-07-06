@@ -80,8 +80,14 @@ testOrSkipOnWindows(
     const pmlinkInstall = path.join(fixturesDir, "pmlink-install");
 
     // Create symlinks before test
+    if (fs.existsSync(pmlink)) fs.unlinkSync(pmlink);
+    if (fs.existsSync(pmlinkInstall)) fs.unlinkSync(pmlinkInstall);
     fs.symlinkSync("./pm", pmlink);
     fs.symlinkSync("./pm-install", pmlinkInstall);
+
+    // Add execute permissions using child_process
+    await execFileAsync("chmod", ["+x", pmlink]);
+    await execFileAsync("chmod", ["+x", pmlinkInstall]);
 
     try {
       const { stdout } = await execFileAsync("node", [pmlink, "install"]);
@@ -107,8 +113,14 @@ testOrSkipOnWindows(
     fs.mkdirSync(path.dirname(otherDirPm), { recursive: true });
     fs.mkdirSync(path.dirname(anotherDirPm), { recursive: true });
 
+    if (fs.existsSync(otherDirPm)) fs.unlinkSync(otherDirPm);
+    if (fs.existsSync(anotherDirPm)) fs.unlinkSync(anotherDirPm);
     fs.symlinkSync(pmFile, otherDirPm);
     fs.symlinkSync(otherDirPm, anotherDirPm);
+
+    // Add execute permissions using child_process
+    await execFileAsync("chmod", ["+x", otherDirPm]);
+    await execFileAsync("chmod", ["+x", anotherDirPm]);
 
     try {
       const { stdout } = await execFileAsync("node", [anotherDirPm, "install"]);
