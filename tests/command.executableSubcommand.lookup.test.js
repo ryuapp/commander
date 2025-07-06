@@ -18,12 +18,12 @@ const pm = path.join(__dirname, "./fixtures/pm");
 beforeAll(async () => {
   const fixtureFiles = [
     "pm-default",
-    "pm-install", 
+    "pm-install",
     "pm-silent",
     "pm-listen",
-    "pm-search"
+    "pm-search",
   ];
-  
+
   for (const file of fixtureFiles) {
     const filePath = path.join(__dirname, "fixtures", file);
     try {
