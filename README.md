@@ -135,7 +135,7 @@ $ node string-util.js split --separator=/ a/b/c
 [ 'a', 'b', 'c' ]
 ```
 
-More samples can be found in the [examples](https://github.com/ryuapp/commander/tree/master/examples) directory.
+More samples can be found in the [examples](https://github.com/ryuapp/commander/tree/main/examples) directory.
 
 ## Declaring _program_ variable
 
