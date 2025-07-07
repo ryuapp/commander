@@ -104,7 +104,7 @@ expectType<commander.Command>(
 // exitOverride
 expectType<commander.Command>(program.exitOverride());
 expectType<commander.Command>(
-  program.exitOverride((err): never => {
+  program.exitOverride((err): void => {
     return process.exit(err.exitCode);
   }),
 );
