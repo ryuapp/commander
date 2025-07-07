@@ -1,8 +1,11 @@
-const process = require("node:process");
-const childProcess = require("child_process");
-const fs = require("fs");
-const path = require("path");
-const util = require("util");
+import process from "node:process";
+import childProcess from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+import util from "node:util";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execFileAsync = util.promisify(childProcess.execFile);
 
 // Calling node explicitly so pm works without file suffix cross-platform.

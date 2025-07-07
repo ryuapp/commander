@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const process = require("node:process");
+import process from "node:process";
 const { Command, Option } = require("commander");
 const program = new Command();
 

@@ -4,7 +4,7 @@
 //    Other option types, flag|value
 //    You can specify an option which functions as a flag but may also take a value (declared using square brackets).
 
-const process = require("node:process");
+import process from "node:process";
 const commander = require("commander");
 const program = new commander.Command();
 

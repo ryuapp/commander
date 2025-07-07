@@ -1,5 +1,5 @@
-const process = require("node:process");
-const path = require("path");
+import process from "node:process";
+import path from "node:path";
 import commander from "../index.js";
 
 test("when construct with name then name is set", () => {

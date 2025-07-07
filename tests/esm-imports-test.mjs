@@ -11,7 +11,7 @@ import {
   Option,
   program,
 } from "../esm.mjs";
-const process = require("node:process");
+import process from "node:process";
 
 // Do some simple checks that expected imports are available at runtime.
 // Run using `npm run test-esm`.

@@ -1,7 +1,9 @@
-const process = require("node:process");
-const childProcess = require("child_process");
-const path = require("path");
+import process from "node:process";
+import childProcess from "node:child_process";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const pmPath = path.join(__dirname, "fixtures", "pm");
 
 // Disabling some tests on Windows as:

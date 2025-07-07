@@ -1,2 +1,2 @@
-const process = require("node:process");
+import process from "node:process";
 process.exit(42);

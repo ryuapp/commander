@@ -1,7 +1,10 @@
-const process = require("node:process");
+import process from "node:process";
 import { vi } from "vitest";
-const path = require("path");
+import path from "node:path";
 import commander from "../index.js";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 describe("command with conflicting options", () => {
   function makeProgram() {

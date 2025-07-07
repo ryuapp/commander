@@ -1,4 +1,4 @@
-const process = require("node:process");
+import process from "node:process";
 const commander = require("commander");
 const program = new commander.Command();
 

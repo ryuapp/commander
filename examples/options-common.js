@@ -3,7 +3,7 @@
 // This is used as an example in the README for:
 //    Common option types, boolean and value
 
-const process = require("node:process");
+import process from "node:process";
 const commander = require("commander");
 const program = new commander.Command();
 
