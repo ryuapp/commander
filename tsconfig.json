@@ -33,7 +33,6 @@
   "include": [
     /* JavaScript. Should match includes in tsconfig.js.json. */
     "*.js",
-    ".prettierrc.js", /* missed by above pattern */
     "*.mjs",
     "lib/**/*.js",
     /* TypeScript. Should match includes in tsconfig.ts.json. */
