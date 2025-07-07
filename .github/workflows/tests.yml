@@ -27,7 +27,7 @@ jobs:
       # Use separate run commands so command status handled correctly on Windows
       - name: npm install
         run: npm ci
-      - name: npm test
-        run: npm test
       - name: npm run check
         run: npm run check
+      - name: npm test
+        run: npm test
