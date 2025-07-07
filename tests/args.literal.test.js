@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 // Utility Conventions: http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html#tag_12_02
 //

@@ -1,4 +1,6 @@
-const { Command, Option } = require("../");
+import commander from "../index.js";
+
+const { Command, Option } = commander;
 
 describe(".option()", () => {
   test("when short option flag conflicts then throws", () => {

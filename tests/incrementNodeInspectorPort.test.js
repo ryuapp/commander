@@ -1,7 +1,8 @@
 const process = require("node:process");
 const childProcess = require("child_process");
 const path = require("path");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 
 describe("incrementNodeInspectorPort", () => {
   let spawnSpy;
@@ -9,12 +10,12 @@ describe("incrementNodeInspectorPort", () => {
   const oldExecArgv = process.execArgv;
 
   beforeAll(() => {
-    spawnSpy = jest.spyOn(childProcess, "spawn").mockImplementation(() => {
+    spawnSpy = vi.spyOn(childProcess, "spawn").mockImplementation(() => {
       return {
         on: () => {},
       };
     });
-    signalSpy = jest.spyOn(process, "on").mockImplementation(() => {});
+    signalSpy = vi.spyOn(process, "on").mockImplementation(() => {});
   });
 
   afterEach(() => {

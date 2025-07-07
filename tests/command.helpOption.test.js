@@ -1,5 +1,6 @@
 const process = require("node:process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 
 describe("helpOption", () => {
   let writeSpy;
@@ -7,8 +8,8 @@ describe("helpOption", () => {
 
   beforeAll(() => {
     // Optional. Suppress expected output to keep test output clean.
-    writeSpy = jest.spyOn(process.stdout, "write").mockImplementation(() => {});
-    writeErrorSpy = jest
+    writeSpy = vi.spyOn(process.stdout, "write").mockImplementation(() => {});
+    writeErrorSpy = vi
       .spyOn(process.stderr, "write")
       .mockImplementation(() => {});
   });

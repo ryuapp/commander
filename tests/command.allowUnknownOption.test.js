@@ -1,5 +1,6 @@
 const process = require("node:process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 
 // Not testing output, just testing whether an error is detected.
 
@@ -8,7 +9,7 @@ describe("allowUnknownOption", () => {
   let writeErrorSpy;
 
   beforeAll(() => {
-    writeErrorSpy = jest
+    writeErrorSpy = vi
       .spyOn(process.stderr, "write")
       .mockImplementation(() => {});
   });

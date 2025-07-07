@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 class MyArgument extends commander.Argument {
   constructor(name, description) {

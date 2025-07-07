@@ -1,4 +1,6 @@
-const { Command } = require("../");
+import commander from "../index.js";
+
+const { Command } = commander;
 
 function getSuggestion(program, arg) {
   let message = "";

@@ -1,6 +1,6 @@
 const process = require("node:process");
 const path = require("path");
-const commander = require("../");
+import commander from "../index.js";
 
 test("when construct with name then name is set", () => {
   const program = new commander.Command("foo");

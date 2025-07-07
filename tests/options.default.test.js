@@ -1,4 +1,6 @@
-const { Command, Option } = require("../");
+import commander from "../index.js";
+
+const { Command, Option } = commander;
 
 describe(".option() with default and option not specified in parse", () => {
   test("when boolean option with boolean default then value is default", () => {

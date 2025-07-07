@@ -1,5 +1,6 @@
 const process = require("node:process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 
 // Assuming mandatory options behave as normal options apart from the mandatory aspect, not retesting all behaviour.
 // Likewise, not redoing all tests on subcommand after testing on program.
@@ -103,7 +104,7 @@ describe("required program option with mandatory value not specified", () => {
   let writeErrorSpy;
 
   beforeAll(() => {
-    writeErrorSpy = jest
+    writeErrorSpy = vi
       .spyOn(process.stderr, "write")
       .mockImplementation(() => {});
   });
@@ -200,7 +201,7 @@ describe("required command option with mandatory value not specified", () => {
   let writeErrorSpy;
 
   beforeAll(() => {
-    writeErrorSpy = jest
+    writeErrorSpy = vi
       .spyOn(process.stderr, "write")
       .mockImplementation(() => {});
   });
@@ -246,7 +247,7 @@ describe("missing mandatory option but help requested", () => {
   let writeSpy;
 
   beforeAll(() => {
-    writeSpy = jest.spyOn(process.stdout, "write").mockImplementation(() => {});
+    writeSpy = vi.spyOn(process.stdout, "write").mockImplementation(() => {});
   });
 
   afterEach(() => {

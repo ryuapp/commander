@@ -14,22 +14,24 @@ const describeOrSkipOnWindows = process.platform === "win32"
 describeOrSkipOnWindows("signals", () => {
   test.each(["SIGINT", "SIGHUP", "SIGTERM", "SIGUSR1", "SIGUSR2"])(
     "when program sent %s then executableSubcommand sent signal too",
-    (signal, done) => {
-      // Spawn program. The listen subcommand waits for a signal and writes the name of the signal to stdout.
-      const proc = childProcess.spawn(pmPath, ["listen"], {});
+    (signal) => {
+      return new Promise((resolve) => {
+        // Spawn program. The listen subcommand waits for a signal and writes the name of the signal to stdout.
+        const proc = childProcess.spawn(pmPath, ["listen"], {});
 
-      let processOutput = "";
-      proc.stdout.on("data", (data) => {
-        if (processOutput.length === 0) {
-          // Send signal to program.
-          proc.kill(`${signal}`);
-        }
-        processOutput += data.toString();
-      });
-      proc.on("close", (code) => {
-        // Check the child subcommand received the signal too.
-        expect(processOutput).toBe(`Listening for signal...${signal}`);
-        done();
+        let processOutput = "";
+        proc.stdout.on("data", (data) => {
+          if (processOutput.length === 0) {
+            // Send signal to program.
+            proc.kill(`${signal}`);
+          }
+          processOutput += data.toString();
+        });
+        proc.on("close", (code) => {
+          // Check the child subcommand received the signal too.
+          expect(processOutput).toBe(`Listening for signal...${signal}`);
+          resolve();
+        });
       });
     },
   );

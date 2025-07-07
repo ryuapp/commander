@@ -1,10 +1,11 @@
-const commander = require("../");
+import commander from "../index.js";
+import { vi } from "vitest";
 
 // Testing default value and custom processing behaviours.
 // Some double assertions in tests to check action argument and .processedArg
 
 test("when argument not specified then callback not called", () => {
-  const mockCoercion = jest.fn();
+  const mockCoercion = vi.fn();
   const program = new commander.Command();
   program.argument("[n]", "number", mockCoercion).action(() => {});
   program.parse([], { from: "user" });
@@ -22,7 +23,7 @@ test("when argument not specified then action argument undefined", () => {
 });
 
 test("when custom with starting value and argument not specified then callback not called", () => {
-  const mockCoercion = jest.fn();
+  const mockCoercion = vi.fn();
   const program = new commander.Command();
   program.argument("[n]", "number", parseFloat, 1).action(() => {});
   program.parse([], { from: "user" });
@@ -70,7 +71,7 @@ test("when default value is defined (without custom processing) and argument not
 });
 
 test("when argument specified then callback called with value", () => {
-  const mockCoercion = jest.fn();
+  const mockCoercion = vi.fn();
   const value = "1";
   const program = new commander.Command();
   program.argument("[n]", "number", mockCoercion).action(() => {});
@@ -118,7 +119,7 @@ test("when argument specified then program.args has original rather than custom"
 });
 
 test("when custom with starting value and argument specified then callback called with value and starting value", () => {
-  const mockCoercion = jest.fn();
+  const mockCoercion = vi.fn();
   const startingValue = 1;
   const value = "2";
   const program = new commander.Command()
@@ -129,7 +130,7 @@ test("when custom with starting value and argument specified then callback calle
 });
 
 test("when variadic argument specified multiple times then callback called with value and previousValue", () => {
-  const mockCoercion = jest.fn().mockImplementation(() => {
+  const mockCoercion = vi.fn().mockImplementation(() => {
     return "callback";
   });
   const program = new commander.Command();

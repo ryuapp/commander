@@ -1,3 +1,5 @@
+import commander from "../index.js";
+
 const {
   program,
   Command,
@@ -10,12 +12,12 @@ const {
   createCommand,
   createOption,
   createArgument,
-} = require("../index.js");
+} = commander;
 
 // Do some testing of the default export(s).
 // Similar tests to ts-imports.test.ts and esm-imports-test.js.
 
-/* eslint jest/expect-expect: ["error", { "assertFunctionNames": ["expect", "checkClass"] }] */
+/* eslint vitest/expect-expect: ["error", { "assertFunctionNames": ["expect", "checkClass"] }] */
 
 function checkClass(obj, name) {
   expect(typeof obj).toEqual("object");

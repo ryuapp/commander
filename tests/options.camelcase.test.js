@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 // Capitalise the letters of words after dashes, but otherwise preserve case
 

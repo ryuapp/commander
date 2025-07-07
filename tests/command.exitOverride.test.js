@@ -1,5 +1,6 @@
 const process = require("node:process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 const path = require("path");
 
 // Test details of the exitOverride errors.
@@ -7,7 +8,7 @@ const path = require("path");
 // semver minor versions. For now, also testing the error.message and that output occurred
 // to detect accidental changes in behaviour.
 
-/* eslint jest/expect-expect: ["error", { "assertFunctionNames": ["expect", "expectCommanderError"] }] */
+/* eslint vitest/expect-expect: ["error", { "assertFunctionNames": ["expect", "expectCommanderError"] }] */
 
 function expectCommanderError(err, exitCode, code, message) {
   expect(err).toBeInstanceOf(commander.CommanderError);
@@ -21,7 +22,7 @@ describe(".exitOverride and error details", () => {
   let stderrSpy;
 
   beforeAll(() => {
-    stderrSpy = jest
+    stderrSpy = vi
       .spyOn(process.stderr, "write")
       .mockImplementation(() => {});
   });
@@ -213,7 +214,7 @@ describe(".exitOverride and error details", () => {
   });
 
   test("when specify --help then throw CommanderError", () => {
-    const writeSpy = jest
+    const writeSpy = vi
       .spyOn(process.stdout, "write")
       .mockImplementation(() => {});
     const program = new commander.Command();
@@ -250,7 +251,7 @@ describe(".exitOverride and error details", () => {
   });
 
   test("when specify --version then throw CommanderError", () => {
-    const stdoutSpy = jest
+    const stdoutSpy = vi
       .spyOn(process.stdout, "write")
       .mockImplementation(() => {});
     const myVersion = "1.2.3";
@@ -438,7 +439,7 @@ describe(".exitOverride and error details", () => {
 });
 
 test("when no override and error then exit(1)", () => {
-  const exitSpy = jest.spyOn(process, "exit").mockImplementation(() => {});
+  const exitSpy = vi.spyOn(process, "exit").mockImplementation(() => {});
   const program = new commander.Command();
   program.configureOutput({ outputError: () => {} });
   program.parse(["--unknownOption"], { from: "user" });

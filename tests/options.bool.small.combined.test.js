@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 test("when when multiple short flags specified then all values are true", () => {
   const program = new commander.Command();

@@ -1,4 +1,6 @@
-const { Command, Option } = require("../");
+import commander from "../index.js";
+
+const { Command, Option } = commander;
 
 // Similar tests for Option.helpGroup() and Command.helpGroup(),
 // and for Command.optionsGroup() and Command.commandsGroup().

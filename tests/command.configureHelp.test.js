@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 test("when configure program then affects program helpInformation", () => {
   const program = new commander.Command();

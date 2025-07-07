@@ -1,10 +1,11 @@
 const process = require("node:process");
+import { vi } from "vitest";
 const path = require("path");
-const commander = require("../");
+import commander from "../index.js";
 
 describe("command with conflicting options", () => {
   function makeProgram() {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     const program = new commander.Command();
     program
       .exitOverride()
@@ -261,7 +262,7 @@ describe("command with conflicting options", () => {
   test("should not throw error when conflicts is invoked with a single string that includes another option", () => {
     const { program } = makeProgram();
 
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
 
     program
       .command("bar")

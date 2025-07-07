@@ -1,4 +1,6 @@
-const { Command, Option, Argument } = require("../");
+import commander from "../index.js";
+
+const { Command, Option, Argument } = commander;
 
 // Testing the functions which should chain.
 // parse and parseAsync are tested in command.parse.test.js

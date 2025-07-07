@@ -1,4 +1,5 @@
-const commander = require("../");
+import commander from "../index.js";
+import { vi } from "vitest";
 
 // Running alias commands is tested in command.executableSubcommand.lookup.test.js
 // Test various other behaviours for .alias
@@ -33,7 +34,7 @@ test("when command name = alias then error", () => {
 
 test("when use alias then action handler called", () => {
   const program = new commander.Command();
-  const actionMock = jest.fn();
+  const actionMock = vi.fn();
   program.command("list").alias("ls").action(actionMock);
   program.parse(["ls"], { from: "user" });
   expect(actionMock).toHaveBeenCalled();
@@ -41,7 +42,7 @@ test("when use alias then action handler called", () => {
 
 test("when use second alias added separately then action handler called", () => {
   const program = new commander.Command();
-  const actionMock = jest.fn();
+  const actionMock = vi.fn();
   program.command("list").alias("ls").alias("dir").action(actionMock);
   program.parse(["dir"], { from: "user" });
   expect(actionMock).toHaveBeenCalled();
@@ -49,7 +50,7 @@ test("when use second alias added separately then action handler called", () => 
 
 test("when use second of aliases then action handler called", () => {
   const program = new commander.Command();
-  const actionMock = jest.fn();
+  const actionMock = vi.fn();
   program.command("list").aliases(["ls", "dir"]).action(actionMock);
   program.parse(["dir"], { from: "user" });
   expect(actionMock).toHaveBeenCalled();

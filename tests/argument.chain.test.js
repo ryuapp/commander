@@ -1,4 +1,6 @@
-const { Argument } = require("../");
+import commander from "../index.js";
+
+const { Argument } = commander;
 
 describe("Argument methods that should return this for chaining", () => {
   test("when call .default() then returns this", () => {

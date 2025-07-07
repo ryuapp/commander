@@ -2,7 +2,8 @@ const process = require("node:process");
 const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 
 // This file does in-process mocking. Bit clumsy but faster and less external clutter than using fixtures.
 // See also command.executableSubcommand.lookup.test.js for tests using fixtures.
@@ -13,7 +14,32 @@ function extractMockSpawnArgs(mock) {
   expect(mock).toHaveBeenCalled();
   // non-Win, launchWithNode: childProcess.spawn(process.argv[0], args, { stdio: 'inherit' });
   // Win always: childProcess.spawn(process.execPath, args, { stdio: 'inherit' });
-  return mock.mock.calls[0][1];
+  const args = mock.mock.calls[0][1];
+  // Filter out Node.js flags and values that Vitest adds
+  const filteredArgs = [];
+  let skipNext = false;
+
+  for (let i = 0; i < args.length; i++) {
+    if (skipNext) {
+      skipNext = false;
+      continue;
+    }
+
+    if (args[i].startsWith("--conditions")) {
+      // Skip this flag and its value
+      skipNext = true;
+      continue;
+    }
+
+    // Skip standalone condition values that Vitest adds
+    if (args[i] === "node" || args[i] === "development") {
+      continue;
+    }
+
+    filteredArgs.push(args[i]);
+  }
+
+  return filteredArgs;
 }
 
 function extractMockSpawnCommand(mock) {
@@ -31,7 +57,7 @@ describe("search for subcommand", () => {
   let existsSpy;
 
   beforeAll(() => {
-    spawnSpy = jest.spyOn(childProcess, "spawn").mockImplementation(() => {
+    spawnSpy = vi.spyOn(childProcess, "spawn").mockImplementation(() => {
       return {
         on: () => {},
         killed: true,
@@ -40,7 +66,7 @@ describe("search for subcommand", () => {
   });
 
   beforeEach(() => {
-    existsSpy = jest.spyOn(fs, "existsSync");
+    existsSpy = vi.spyOn(fs, "existsSync");
   });
 
   afterEach(() => {
@@ -255,7 +281,7 @@ describe("search for subcommand", () => {
         "script",
         "link-sub.js",
       );
-      const realPathSyncSpy = jest
+      const realPathSyncSpy = vi
         .spyOn(fs, "realpathSync")
         .mockImplementation((path) => {
           return path === linkPath ? scriptPath : linkPath;

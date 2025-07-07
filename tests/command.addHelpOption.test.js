@@ -1,5 +1,8 @@
 const process = require("node:process");
-const { Command, Option } = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
+
+const { Command, Option } = commander;
 
 // More complete tests are in command.helpOption.test.js.
 
@@ -9,8 +12,8 @@ describe("addHelpOption", () => {
 
   beforeAll(() => {
     // Optional. Suppress expected output to keep test output clean.
-    writeSpy = jest.spyOn(process.stdout, "write").mockImplementation(() => {});
-    writeErrorSpy = jest
+    writeSpy = vi.spyOn(process.stdout, "write").mockImplementation(() => {});
+    writeErrorSpy = vi
       .spyOn(process.stderr, "write")
       .mockImplementation(() => {});
   });

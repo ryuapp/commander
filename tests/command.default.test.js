@@ -1,5 +1,6 @@
 const childProcess = require("child_process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 const path = require("path");
 const util = require("util");
 
@@ -28,7 +29,7 @@ describe("default executable command", () => {
 describe("default action command", () => {
   function makeProgram() {
     const program = new commander.Command();
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     program.command("other");
     program
       .command("default", { isDefault: true })
@@ -59,7 +60,7 @@ describe("default action command", () => {
 
 describe("default added command", () => {
   function makeProgram() {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     const defaultCmd = new commander.Command("default")
       .allowUnknownOption()
       .allowExcessArguments()

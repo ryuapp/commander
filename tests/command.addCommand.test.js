@@ -1,9 +1,10 @@
-const commander = require("../");
+import commander from "../index.js";
+import { vi } from "vitest";
 
 // simple sanity check subcommand works
 test("when addCommand and specify subcommand then called", () => {
   const program = new commander.Command();
-  const leafAction = jest.fn();
+  const leafAction = vi.fn();
   const sub = new commander.Command();
   sub.name("sub").action(leafAction);
   program.addCommand(sub);
@@ -33,7 +34,6 @@ test("when commands added using .addCommand and .command then internals similar"
       case "number":
       case "undefined":
         // Compare values in a way that will be readable in test failure message.
-        // eslint-disable-next-line jest/no-conditional-expect
         expect(`${key}:${cmd1[key]}`).toEqual(`${key}:${cmd2[key]}`);
         break;
     }

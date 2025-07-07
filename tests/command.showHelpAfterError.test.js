@@ -1,10 +1,11 @@
-const commander = require("../");
+import commander from "../index.js";
+import { vi } from "vitest";
 
 describe("showHelpAfterError with message", () => {
   const customHelpMessage = "See --help";
 
   function makeProgram() {
-    const writeMock = jest.fn();
+    const writeMock = vi.fn();
     const program = new commander.Command();
     program
       .exitOverride()
@@ -106,7 +107,7 @@ describe("showHelpAfterError with message", () => {
 });
 
 test("when showHelpAfterError() and error and then shows full help", () => {
-  const writeMock = jest.fn();
+  const writeMock = vi.fn();
   const program = new commander.Command();
   program
     .exitOverride()

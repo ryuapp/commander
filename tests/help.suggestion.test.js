@@ -1,4 +1,6 @@
-const { Command, Option } = require("../");
+import commander from "../index.js";
+
+const { Command, Option } = commander;
 
 // Note: setting up shared command configuration in getSuggestion,
 // and looking for possible subcommand 'sub'.

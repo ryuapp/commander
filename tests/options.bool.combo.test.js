@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 // Test combination of flag and --no-flag
 // (single flags tested in options.bool.test.js)

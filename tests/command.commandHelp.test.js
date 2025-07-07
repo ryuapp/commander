@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 // This is a ported legacy test.
 

@@ -1,5 +1,6 @@
 const process = require("node:process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 
 // treating optional same as required, treat as option taking value rather than as boolean
 describe.each(["-f, --foo <required-arg>", "-f, --foo [optional-arg]"])(
@@ -264,8 +265,8 @@ describe("env only processed when applies", () => {
 
   test("when env and cli defined then only emit option event for cli", () => {
     const program = new commander.Command();
-    const optionEventMock = jest.fn();
-    const optionEnvEventMock = jest.fn();
+    const optionEventMock = vi.fn();
+    const optionEnvEventMock = vi.fn();
     program.on("option:foo", optionEventMock);
     program.on("optionEnv:foo", optionEnvEventMock);
     process.env.BAR = "env";
@@ -281,7 +282,7 @@ describe("env only processed when applies", () => {
 
   test("when env and cli defined then only parse value for cli", () => {
     const program = new commander.Command();
-    const parseMock = jest.fn();
+    const parseMock = vi.fn();
     process.env.BAR = "env";
     program.addOption(
       new commander.Option("-f, --foo <required...>")
@@ -296,7 +297,7 @@ describe("env only processed when applies", () => {
 });
 
 describe("events dispatched for env", () => {
-  const optionEnvEventMock = jest.fn();
+  const optionEnvEventMock = vi.fn();
 
   afterEach(() => {
     optionEnvEventMock.mockClear();
@@ -306,7 +307,7 @@ describe("events dispatched for env", () => {
   test('when env defined then emit "optionEnv" and not "option"', () => {
     // Decided to do separate events, so test stays that way.
     const program = new commander.Command();
-    const optionEventMock = jest.fn();
+    const optionEventMock = vi.fn();
     program.on("option:foo", optionEventMock);
     program.on("optionEnv:foo", optionEnvEventMock);
     process.env.BAR = "env";

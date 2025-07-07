@@ -1,4 +1,6 @@
-const { Option } = require("../");
+import commander from "../index.js";
+
+const { Option } = commander;
 
 describe("Option methods that should return this for chaining", () => {
   test("when call .default() then returns this", () => {
