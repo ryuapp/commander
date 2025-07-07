@@ -1,3 +1,4 @@
+const process = require("node:process");
 const { Command, Option } = require("../");
 
 // More complete tests are in command.helpOption.test.js.

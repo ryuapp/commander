@@ -1,3 +1,4 @@
+const process = require("node:process");
 const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");

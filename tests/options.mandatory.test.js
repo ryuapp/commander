@@ -1,3 +1,4 @@
+const process = require("node:process");
 const commander = require("../");
 
 // Assuming mandatory options behave as normal options apart from the mandatory aspect, not retesting all behaviour.

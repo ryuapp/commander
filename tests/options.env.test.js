@@ -1,3 +1,4 @@
+const process = require("node:process");
 const commander = require("../");
 
 // treating optional same as required, treat as option taking value rather than as boolean

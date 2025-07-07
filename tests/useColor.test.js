@@ -1,3 +1,4 @@
+const process = require("node:process");
 const { useColor } = require("../lib/command.js");
 
 describe("internal useColor environment variable support", () => {

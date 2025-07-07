@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const process = require("node:process");
 const commander = require("commander");
 const program = new commander.Command();
 

@@ -1,3 +1,4 @@
+const process = require("node:process");
 const commander = require("../");
 const childProcess = require("child_process");
 const EventEmitter = require("events");

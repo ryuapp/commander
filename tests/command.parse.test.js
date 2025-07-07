@@ -1,3 +1,4 @@
+const process = require("node:process");
 const commander = require("../");
 
 // Testing some Electron conventions but not directly using Electron to avoid overheads.

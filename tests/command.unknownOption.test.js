@@ -1,3 +1,4 @@
+const process = require("node:process");
 const commander = require("../");
 
 // Checking for detection of unknown options, including regression tests for some past issues.

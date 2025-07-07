@@ -1,3 +1,4 @@
+const process = require("node:process");
 const commander = require("../");
 
 // .command('*') is the old main/default command handler. It adds a listener

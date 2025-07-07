@@ -1,3 +1,4 @@
+const process = require("node:process");
 const commander = require("../");
 const path = require("path");
 

@@ -1,3 +1,4 @@
+const process = require("node:process");
 const { Command, Option } = require("../");
 
 describe("check priorities", () => {

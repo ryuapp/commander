@@ -1,3 +1,4 @@
+const process = require("node:process");
 const commander = require("../");
 
 test("when error called with message then message displayed on stderr", () => {

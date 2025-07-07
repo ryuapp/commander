@@ -1,3 +1,4 @@
+const process = require("node:process");
 const commander = require("../");
 
 // Using outputHelp to simplify testing.

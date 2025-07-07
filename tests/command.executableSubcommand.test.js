@@ -1,3 +1,4 @@
+const process = require("node:process");
 const commander = require("../");
 
 // Executable subcommand tests that didn't fit in elsewhere.

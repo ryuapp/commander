@@ -1,3 +1,4 @@
+const process = require("node:process");
 const commander = require("../");
 
 // Not testing output, just testing whether an error is detected.
