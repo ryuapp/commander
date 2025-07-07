@@ -1,4 +1,6 @@
-const { Command, Option } = require("../");
+import commander from "../index.js";
+
+const { Command, Option } = commander;
 
 // It is a reasonable and easy mistake to pass Option to .option(). Detect this
 // and offer advice.

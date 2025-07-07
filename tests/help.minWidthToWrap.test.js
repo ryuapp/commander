@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 describe("Help.minWidthToWrap", () => {
   test("when enough width then wrap", () => {

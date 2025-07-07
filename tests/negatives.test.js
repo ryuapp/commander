@@ -1,4 +1,6 @@
-const { Command } = require("../");
+import commander from "../index.js";
+
+const { Command } = commander;
 
 // boolean is whether is a consumable argument when negative numbers allowed
 const negativeNumbers = [

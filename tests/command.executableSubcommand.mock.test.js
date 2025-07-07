@@ -1,5 +1,6 @@
 const process = require("node:process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 const childProcess = require("child_process");
 const EventEmitter = require("events");
 
@@ -14,7 +15,6 @@ function makeSystemError(code) {
 }
 
 // Suppress false positive warnings due to use of testOrSkipOnWindows
-/* eslint-disable jest/no-standalone-expect */
 
 const testOrSkipOnWindows = process.platform === "win32" ? test.skip : test;
 
@@ -24,7 +24,7 @@ testOrSkipOnWindows(
     // If the command is not found, we show a custom error with an explanation and offer
     // some advice for possible fixes.
     const mockProcess = new EventEmitter();
-    const spawnSpy = jest
+    const spawnSpy = vi
       .spyOn(childProcess, "spawn")
       .mockImplementation(() => {
         return mockProcess;
@@ -44,7 +44,7 @@ testOrSkipOnWindows(
   "when subcommand executable not executable (EACCES) then throw custom message",
   () => {
     const mockProcess = new EventEmitter();
-    const spawnSpy = jest
+    const spawnSpy = vi
       .spyOn(childProcess, "spawn")
       .mockImplementation(() => {
         return mockProcess;
@@ -64,7 +64,7 @@ test("when subcommand executable fails with other error and exitOverride then re
   // The existing behaviour is to just silently fail for unexpected errors, as it is happening
   // asynchronously in spawned process and client can not catch errors.
   const mockProcess = new EventEmitter();
-  const spawnSpy = jest.spyOn(childProcess, "spawn").mockImplementation(() => {
+  const spawnSpy = vi.spyOn(childProcess, "spawn").mockImplementation(() => {
     return mockProcess;
   });
   const program = new commander.Command();
@@ -89,10 +89,10 @@ test("when subcommand executable fails with other error then exit", () => {
   // The existing behaviour is to just silently fail for unexpected errors, as it is happening
   // asynchronously in spawned process and client can not catch errors.
   const mockProcess = new EventEmitter();
-  const spawnSpy = jest.spyOn(childProcess, "spawn").mockImplementation(() => {
+  const spawnSpy = vi.spyOn(childProcess, "spawn").mockImplementation(() => {
     return mockProcess;
   });
-  const exitSpy = jest.spyOn(process, "exit").mockImplementation(() => {});
+  const exitSpy = vi.spyOn(process, "exit").mockImplementation(() => {});
   const program = new commander.Command();
   program._checkForMissingExecutable = () => {}; // suppress error, call mocked spawn
   program.command("executable", "executable description");

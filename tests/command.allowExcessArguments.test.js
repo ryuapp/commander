@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 // Not testing output, just testing whether an error is detected.
 

@@ -1,5 +1,7 @@
-const { Option, DualOptions } = require("../lib/option.js");
-const { Command } = require("../");
+import { DualOptions, Option } from "../lib/option.js";
+import commander from "../index.js";
+
+const { Command } = commander;
 
 // This tests an internal helper class which is not currently exposed on the package.
 

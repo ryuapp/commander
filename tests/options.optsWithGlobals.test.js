@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 // Testing optsWithGlobals and getOptionValueSourceWithGlobals with focus on globals.
 

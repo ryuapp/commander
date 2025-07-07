@@ -1,5 +1,7 @@
 const process = require("node:process");
-const { Command, Option } = require("../");
+import commander from "../index.js";
+
+const { Command, Option } = commander;
 
 describe("check priorities", () => {
   test("when source undefined and implied undefined then implied is undefined", () => {

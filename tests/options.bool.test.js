@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 // Test simple flag and negatable flag
 

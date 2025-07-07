@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 // Do some low-level checks that the multiple ways of specifying command arguments produce same internal result,
 // and not exhaustively testing all methods elsewhere.

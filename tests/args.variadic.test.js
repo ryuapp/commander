@@ -1,10 +1,11 @@
-const commander = require("../");
+import commander from "../index.js";
+import { vi } from "vitest";
 
 // Testing variadic arguments. Testing all the action arguments, but could test just variadicArg.
 
 describe("variadic argument", () => {
   test("when no extra arguments specified for program then variadic arg is empty array", () => {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     const program = new commander.Command();
     program.arguments("<id> [variadicArg...]").action(actionMock);
 
@@ -14,7 +15,7 @@ describe("variadic argument", () => {
   });
 
   test("when extra arguments specified for program then variadic arg is array of values", () => {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     const program = new commander.Command();
     program.arguments("<id> [variadicArg...]").action(actionMock);
     const extraArguments = ["a", "b", "c"];
@@ -30,7 +31,7 @@ describe("variadic argument", () => {
   });
 
   test("when no extra arguments specified for command then variadic arg is empty array", () => {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     const program = new commander.Command();
     const cmd = program.command("sub [variadicArg...]").action(actionMock);
 
@@ -40,7 +41,7 @@ describe("variadic argument", () => {
   });
 
   test("when extra arguments specified for command then variadic arg is array of values", () => {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     const program = new commander.Command();
     const cmd = program.command("sub [variadicArg...]").action(actionMock);
     const extraArguments = ["a", "b", "c"];

@@ -1,4 +1,6 @@
-const { Command, Option } = require("../");
+import commander from "../index.js";
+
+const { Command, Option } = commander;
 
 // Test that when option specified twice, second use wins.
 // Seems pretty obvious for boolean options, but there was a bug before Commander v9.

@@ -1,12 +1,13 @@
 const process = require("node:process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 
 // Executable subcommand tests that didn't fit in elsewhere.
 
 // This is the default behaviour when no default command and no action handlers
 test("when no command specified and executable then display help", () => {
   // Optional. Suppress normal output to keep test output clean.
-  const writeSpy = jest
+  const writeSpy = vi
     .spyOn(process.stderr, "write")
     .mockImplementation(() => {});
   const program = new commander.Command();

@@ -1,4 +1,6 @@
-const { Command } = require("../");
+import commander from "../index.js";
+
+const { Command } = commander;
 
 test("when command name conflicts with existing name then throw", () => {
   expect(() => {

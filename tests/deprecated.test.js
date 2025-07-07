@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 // Test for backwards compatible behaviour of deprecated features that don't fit in elsewhere.
 // We keep deprecated features working (when not too difficult) to avoid breaking existing code

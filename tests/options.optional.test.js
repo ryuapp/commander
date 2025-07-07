@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 // option with optional value, no default
 describe("option with optional value, no default", () => {

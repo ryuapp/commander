@@ -1,4 +1,6 @@
-const { Command } = require("../");
+import commander from "../index.js";
+
+const { Command } = commander;
 
 function red(str) {
   // Use plain characters so not stripped in Jest failure messages. (Means displayWidth is bogus though.)

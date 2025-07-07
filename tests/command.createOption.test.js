@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 class MyOption extends commander.Option {
   constructor(flags, description) {

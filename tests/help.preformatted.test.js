@@ -1,4 +1,6 @@
-const { Help, Command } = require("../");
+import commander from "../index.js";
+
+const { Help, Command } = commander;
 
 describe("preformatted", () => {
   test("when single line then false", () => {

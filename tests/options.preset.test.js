@@ -1,4 +1,6 @@
-const { Command, Option } = require("../");
+import commander from "../index.js";
+
+const { Command, Option } = commander;
 
 test("when boolean option with string preset used then value is preset", () => {
   const program = new Command();

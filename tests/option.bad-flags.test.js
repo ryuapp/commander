@@ -1,4 +1,6 @@
-const { Option } = require("../");
+import commander from "../index.js";
+
+const { Option } = commander;
 
 // Check that unsupported flags throw.
 test.each([

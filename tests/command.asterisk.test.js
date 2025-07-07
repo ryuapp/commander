@@ -1,5 +1,6 @@
 const process = require("node:process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 
 // .command('*') is the old main/default command handler. It adds a listener
 // for 'command:*'. It has been somewhat replaced by the program action handler,
@@ -13,10 +14,10 @@ const commander = require("../");
 
 describe(".command('*')", () => {
   test("when no arguments then asterisk action not called", () => {
-    const writeMock = jest
+    const writeMock = vi
       .spyOn(process.stderr, "write")
       .mockImplementation(() => {});
-    const mockAction = jest.fn();
+    const mockAction = vi.fn();
     const program = new commander.Command();
     program
       .exitOverride() // to catch help
@@ -32,7 +33,7 @@ describe(".command('*')", () => {
   });
 
   test("when unrecognised argument then asterisk action called", () => {
-    const mockAction = jest.fn();
+    const mockAction = vi.fn();
     const program = new commander.Command();
     program.command("*").argument("[args...]").action(mockAction);
     program.parse(["node", "test", "unrecognised-command"]);
@@ -40,7 +41,7 @@ describe(".command('*')", () => {
   });
 
   test("when recognised command then asterisk action not called", () => {
-    const mockAction = jest.fn();
+    const mockAction = vi.fn();
     const program = new commander.Command();
     program.command("install").action(() => {});
     program.command("*").action(mockAction);
@@ -49,7 +50,7 @@ describe(".command('*')", () => {
   });
 
   test("when unrecognised command/argument then asterisk action called", () => {
-    const mockAction = jest.fn();
+    const mockAction = vi.fn();
     const program = new commander.Command();
     program.command("install");
     program.command("*").argument("[args...]").action(mockAction);
@@ -59,7 +60,7 @@ describe(".command('*')", () => {
 
   test("when unrecognised argument and known option then asterisk action called", () => {
     // This tests for a regression between v4 and v5. Known default option should not be rejected by program.
-    const mockAction = jest.fn();
+    const mockAction = vi.fn();
     const program = new commander.Command();
     program.command("install");
     const star = program
@@ -74,7 +75,7 @@ describe(".command('*')", () => {
 
   test("when non-command argument and unknown option then error for unknown option", () => {
     // This is a change in behaviour from v2 which did not error, but is consistent with modern better detection of invalid options
-    const mockAction = jest.fn();
+    const mockAction = vi.fn();
     const program = new commander.Command();
     program
       .exitOverride()
@@ -96,7 +97,7 @@ describe(".command('*')", () => {
 // Test .on explicitly rather than assuming covered by .command
 describe(".on('command:*')", () => {
   test("when no arguments then listener not called", () => {
-    const mockAction = jest.fn();
+    const mockAction = vi.fn();
     const program = new commander.Command();
     program.on("command:*", mockAction);
     program.parse(["node", "test"]);
@@ -104,7 +105,7 @@ describe(".on('command:*')", () => {
   });
 
   test("when unrecognised argument then listener called", () => {
-    const mockAction = jest.fn();
+    const mockAction = vi.fn();
     const program = new commander.Command();
     program.on("command:*", mockAction);
     program.parse(["node", "test", "unrecognised-command"]);
@@ -112,7 +113,7 @@ describe(".on('command:*')", () => {
   });
 
   test("when recognised command then listener not called", () => {
-    const mockAction = jest.fn();
+    const mockAction = vi.fn();
     const program = new commander.Command();
     program.command("install").action(() => {});
     program.on("command:*", mockAction);
@@ -121,7 +122,7 @@ describe(".on('command:*')", () => {
   });
 
   test("when unrecognised command/argument then listener called", () => {
-    const mockAction = jest.fn();
+    const mockAction = vi.fn();
     const program = new commander.Command();
     program.command("install");
     program.on("command:*", mockAction);
@@ -133,7 +134,7 @@ describe(".on('command:*')", () => {
     // Give listener a chance to make a suggestion for misspelled command. The option
     // could only be unknown because the command is not correct.
     // Regression identified in https://github.com/tj/commander.js/issues/1460#issuecomment-772313494
-    const mockAction = jest.fn();
+    const mockAction = vi.fn();
     const program = new commander.Command();
     program.command("install");
     program.on("command:*", mockAction);

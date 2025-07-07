@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 // These are tests of the Help class, not of the Command help.
 

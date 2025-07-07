@@ -1,12 +1,13 @@
 const process = require("node:process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 
 describe("unknownCommand", () => {
   // Optional. Use internal knowledge to suppress output to keep test output clean.
   let writeErrorSpy;
 
   beforeAll(() => {
-    writeErrorSpy = jest
+    writeErrorSpy = vi
       .spyOn(process.stderr, "write")
       .mockImplementation(() => {});
   });

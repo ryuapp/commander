@@ -1,11 +1,12 @@
-const commander = require("../");
+import commander from "../index.js";
+import { vi } from "vitest";
 
 describe("variadic option with required value", () => {
   test("when variadic with value missing then error", () => {
     const program = new commander.Command();
     program
       .exitOverride()
-      .configureOutput({ writeErr: jest.fn() })
+      .configureOutput({ writeErr: vi.fn() })
       .option("-r,--required <value...>");
 
     expect(() => {

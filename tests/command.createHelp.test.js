@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 test("when override createCommand then affects help", () => {
   class MyHelp extends commander.Help {

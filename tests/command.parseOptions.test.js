@@ -1,5 +1,5 @@
 const childProcess = require("child_process");
-const commander = require("../");
+import commander from "../index.js";
 const path = require("path");
 const util = require("util");
 

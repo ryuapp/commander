@@ -1,9 +1,10 @@
-const commander = require("../");
+import commander from "../index.js";
+import { vi } from "vitest";
 
 // Test some behaviours of .action not covered in more specific tests.
 
 test("when .action called then command passed to action", () => {
-  const actionMock = jest.fn();
+  const actionMock = vi.fn();
   const program = new commander.Command();
   const cmd = program.command("info").action(actionMock);
   program.parse(["node", "test", "info"]);
@@ -32,7 +33,7 @@ test("when .action called then program.args only contains args", () => {
 test.each(getTestCases("<file>"))(
   "when .action on program with required argument via %s and argument supplied then action called",
   (methodName, program) => {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     program.action(actionMock);
     program.parse(["node", "test", "my-file"]);
     expect(actionMock).toHaveBeenCalledWith("my-file", program.opts(), program);
@@ -42,7 +43,7 @@ test.each(getTestCases("<file>"))(
 test.each(getTestCases("<file>"))(
   "when .action on program with required argument via %s and argument not supplied then action not called",
   (methodName, program) => {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     program
       .exitOverride()
       .configureOutput({ writeErr: () => {} })
@@ -56,7 +57,7 @@ test.each(getTestCases("<file>"))(
 
 // Changes made in #729 to call program action handler
 test("when .action on program and no arguments then action called", () => {
-  const actionMock = jest.fn();
+  const actionMock = vi.fn();
   const program = new commander.Command();
   program.action(actionMock);
   program.parse(["node", "test"]);
@@ -66,7 +67,7 @@ test("when .action on program and no arguments then action called", () => {
 test.each(getTestCases("[file]"))(
   "when .action on program with optional argument via %s supplied then action called",
   (methodName, program) => {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     program.action(actionMock);
     program.parse(["node", "test", "my-file"]);
     expect(actionMock).toHaveBeenCalledWith("my-file", program.opts(), program);
@@ -76,7 +77,7 @@ test.each(getTestCases("[file]"))(
 test.each(getTestCases("[file]"))(
   "when .action on program without optional argument supplied then action called",
   (methodName, program) => {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     program.action(actionMock);
     program.parse(["node", "test"]);
     expect(actionMock).toHaveBeenCalledWith(undefined, program.opts(), program);
@@ -86,7 +87,7 @@ test.each(getTestCases("[file]"))(
 test.each(getTestCases("[file]"))(
   "when .action on program with optional argument via %s and subcommand and program argument then program action called",
   (methodName, program) => {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     program.action(actionMock);
     program.command("subcommand");
 
@@ -100,7 +101,7 @@ test.each(getTestCases("[file]"))(
 test.each(getTestCases("[file]"))(
   "when .action on program with optional argument via %s and subcommand and no program argument then program action called",
   (methodName, program) => {
-    const actionMock = jest.fn();
+    const actionMock = vi.fn();
     program.action(actionMock);
     program.command("subcommand");
 

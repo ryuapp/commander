@@ -1,5 +1,6 @@
 const process = require("node:process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 
 // Checking for detection of unknown options, including regression tests for some past issues.
 
@@ -8,7 +9,7 @@ describe("unknownOption", () => {
   let writeErrorSpy;
 
   beforeAll(() => {
-    writeErrorSpy = jest
+    writeErrorSpy = vi
       .spyOn(process.stderr, "write")
       .mockImplementation(() => {});
   });

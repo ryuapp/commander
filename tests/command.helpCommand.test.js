@@ -1,5 +1,6 @@
 const process = require("node:process");
-const commander = require("../");
+import { vi } from "vitest";
+import commander from "../index.js";
 
 describe("help command listed in helpInformation", () => {
   test("when program has no subcommands then no automatic help command", () => {
@@ -60,10 +61,10 @@ describe("help command processed on correct command", () => {
   let writeSpy;
 
   beforeAll(() => {
-    writeErrorSpy = jest
+    writeErrorSpy = vi
       .spyOn(process.stderr, "write")
       .mockImplementation(() => {});
-    writeSpy = jest.spyOn(process.stdout, "write").mockImplementation(() => {});
+    writeSpy = vi.spyOn(process.stdout, "write").mockImplementation(() => {});
   });
 
   afterEach(() => {

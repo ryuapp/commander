@@ -1,4 +1,4 @@
-const commander = require("../");
+import commander from "../index.js";
 
 test("when empty string then return empty string", () => {
   const helper = new commander.Help();

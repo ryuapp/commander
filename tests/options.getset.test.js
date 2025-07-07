@@ -1,5 +1,5 @@
 const process = require("node:process");
-const commander = require("../");
+import commander from "../index.js";
 
 describe.each([true, false])(
   "storeOptionsAsProperties is %s",
