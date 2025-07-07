@@ -1,6 +1,6 @@
 import * as commander from "./index";
 import { expectType } from "tsd";
-const process = require("node:process");
+import process from "node:process";
 
 // We are not just checking return types here, we are also implicitly checking that the expected syntax is allowed.
 
