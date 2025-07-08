@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const process = require("node:process");
-const { Command, Option } = require("commander");
+import process from "node:process";
+import { Command, Option } from "@ryuapp/commander";
 const program = new Command();
 
 // This example shows using some hooks for life cycle events.

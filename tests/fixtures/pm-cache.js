@@ -1,5 +1,5 @@
-const process = require("node:process");
-const { program } = require("../../");
+import process from "node:process";
+import { program } from "../../index.js";
 
 program
   .command("clear", "clear the cache")

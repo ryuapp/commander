@@ -5,7 +5,7 @@
 //    You may specify a required (mandatory) option using `.requiredOption`.
 //    The option must be specified on the command line, or by having a default value.
 
-const commander = require("commander");
+import commander from "@ryuapp/commander";
 const program = new commander.Command();
 
 program.requiredOption("-c, --cheese <type>", "pizza must have cheese");

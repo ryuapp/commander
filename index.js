@@ -1,24 +1,42 @@
-const { Argument } = require("./lib/argument.js");
-const { Command } = require("./lib/command.js");
-const { CommanderError, InvalidArgumentError } = require("./lib/error.js");
-const { Help } = require("./lib/help.js");
-const { Option } = require("./lib/option.js");
+import { Argument } from "./lib/argument.js";
+import { Command } from "./lib/command.js";
+import { CommanderError, InvalidArgumentError } from "./lib/error.js";
+import { Help } from "./lib/help.js";
+import { Option } from "./lib/option.js";
 
-exports.program = new Command();
+export const program = new Command();
 
-exports.createCommand = (name) => new Command(name);
-exports.createOption = (flags, description) => new Option(flags, description);
-exports.createArgument = (name, description) => new Argument(name, description);
+export const createCommand = (name) => new Command(name);
+export const createOption = (flags, description) =>
+  new Option(flags, description);
+export const createArgument = (name, description) =>
+  new Argument(name, description);
 
 /**
  * Expose classes
  */
 
-exports.Command = Command;
-exports.Option = Option;
-exports.Argument = Argument;
-exports.Help = Help;
+export {
+  Argument,
+  Command,
+  CommanderError,
+  Help,
+  InvalidArgumentError,
+  Option,
+};
+export const InvalidOptionArgumentError = InvalidArgumentError; // Deprecated
 
-exports.CommanderError = CommanderError;
-exports.InvalidArgumentError = InvalidArgumentError;
-exports.InvalidOptionArgumentError = InvalidArgumentError; // Deprecated
+// Default export for backward compatibility with tests
+export default {
+  program,
+  createCommand,
+  createOption,
+  createArgument,
+  Command,
+  Option,
+  Argument,
+  Help,
+  CommanderError,
+  InvalidArgumentError,
+  InvalidOptionArgumentError,
+};

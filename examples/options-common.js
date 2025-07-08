@@ -3,8 +3,8 @@
 // This is used as an example in the README for:
 //    Common option types, boolean and value
 
-const process = require("node:process");
-const commander = require("commander");
+import process from "node:process";
+import commander from "@ryuapp/commander";
 const program = new commander.Command();
 
 program

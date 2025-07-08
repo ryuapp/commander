@@ -1,8 +1,11 @@
-const process = require("node:process");
-const childProcess = require("child_process");
-const path = require("path");
+import process from "node:process";
+import childProcess from "node:child_process";
+import path from "node:path";
 import { vi } from "vitest";
 import commander from "../index.js";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 describe("incrementNodeInspectorPort", () => {
   let spawnSpy;

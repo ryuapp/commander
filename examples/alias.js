@@ -2,7 +2,7 @@
 
 // This example shows giving alternative names for a command.
 
-const { Command } = require("commander");
+import { Command } from "@ryuapp/commander";
 const program = new Command();
 
 program

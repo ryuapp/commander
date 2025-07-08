@@ -1,8 +1,8 @@
-const process = require("node:process");
+import process from "node:process";
 import { vi } from "vitest";
 import commander from "../index.js";
-const childProcess = require("child_process");
-const EventEmitter = require("events");
+import childProcess from "node:child_process";
+import EventEmitter from "node:events";
 
 // Using mock to allow try/catch around what is otherwise out-of-stack error handling.
 // Injecting errors, these are not end-to-end tests.

@@ -1,4 +1,4 @@
-const process = require("node:process");
+import process from "node:process";
 import { vi } from "vitest";
 import commander from "../index.js";
 

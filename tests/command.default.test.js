@@ -1,9 +1,11 @@
-const childProcess = require("child_process");
+import childProcess from "node:child_process";
 import { vi } from "vitest";
 import commander from "../index.js";
-const path = require("path");
-const util = require("util");
+import path from "node:path";
+import util from "node:util";
+import { fileURLToPath } from "node:url";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execFileAsync = util.promisify(childProcess.execFile);
 
 describe("default executable command", () => {

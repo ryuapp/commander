@@ -2,7 +2,7 @@
 
 // This is used as an example in the README for variadic options.
 
-const commander = require("commander");
+import commander from "@ryuapp/commander";
 const program = new commander.Command();
 
 program

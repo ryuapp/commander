@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { Command, Option } = require("commander");
+import { Command, Option } from "@ryuapp/commander";
 const program = new Command();
 
 program.addOption(

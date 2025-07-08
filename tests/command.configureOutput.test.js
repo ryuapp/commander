@@ -1,6 +1,6 @@
 import commander from "../index.js";
 import { vi } from "vitest";
-const process = require("node:process");
+import process from "node:process";
 
 test("when default writeErr() then error on stderr", () => {
   const writeSpy = vi

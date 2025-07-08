@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
-const path = require('node:path');
-const { program } = require('../../');
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { program } from '../../index.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 process.env.FORCE_COLOR = 0; // work-around bug in Jest: https://github.com/jestjs/jest/issues/14391
 

@@ -1,4 +1,4 @@
-import * as commander from "./index";
+import * as commander from "./index.js";
 import { expectType } from "tsd";
 import process from "node:process";
 

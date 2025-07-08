@@ -1,14 +1,14 @@
-const globals = require("globals");
-const esLintjs = require("@eslint/js");
-const tseslint = require("typescript-eslint");
-const vitest = require("@vitest/eslint-plugin");
+import globals from "globals";
+import esLintjs from "@eslint/js";
+import tseslint from "typescript-eslint";
+import vitest from "@vitest/eslint-plugin";
 
 // Only run tseslint on the files that we have included for TypeScript.
 const tsconfigTsFiles = ["**/*.{ts,mts}"]; // match "include" in tsconfig.ts.json;
 const tsconfigJsFiles = ["*.{js,mjs}", "lib/**/*.{js,mjs}"]; // match "include" in tsconfig.js.json
 
 // Using tseslint.config adds some type safety and `extends` to simplify customising config array.
-module.exports = tseslint.config(
+export default tseslint.config(
   // Add recommended rules.
   esLintjs.configs.recommended,
   // tseslint with different setup for js/ts
@@ -19,8 +19,8 @@ module.exports = tseslint.config(
       parserOptions: { project: "./tsconfig.js.json" },
     },
     rules: {
-      "@typescript-eslint/no-var-requires": "off", // tseslint does not autodetect commonjs context
-      "@typescript-eslint/no-require-imports": "off", // tseslint does not autodetect commonjs context
+      "@typescript-eslint/no-var-requires": "off", // keeping for backward compatibility
+      "@typescript-eslint/no-require-imports": "off", // keeping for backward compatibility
     },
   },
   {

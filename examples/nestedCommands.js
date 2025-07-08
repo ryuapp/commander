@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const process = require("node:process");
-const commander = require("commander");
+import process from "node:process";
+import commander from "@ryuapp/commander";
 const program = new commander.Command();
 
 // Commander supports nested subcommands.

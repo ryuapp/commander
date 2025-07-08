@@ -2,7 +2,7 @@
 
 A solution for JavaScript command-line interfaces.
 
-- [@ryuapp/commander](#commander)
+- [@ryuapp/commander](#ryuappcommander)
   - [Installation](#installation)
   - [Quick Start](#quick-start)
   - [Declaring _program_ variable](#declaring-program-variable)
@@ -69,7 +69,7 @@ The two most used option types are a boolean option, and an option which takes i
 Example file: [split.js](./examples/split.js)
 
 ```js
-const { program } = require("@ryuapp/commander");
+import { program } from "@ryuapp/commander";
 
 program
   .option("--first")
@@ -96,7 +96,7 @@ Here is a more complete program using a subcommand and with descriptions for the
 Example file: [string-util.js](./examples/string-util.js)
 
 ```js
-const { Command } = require("@ryuapp/commander");
+import { Command } from "@ryuapp/commander";
 const program = new Command();
 
 program
@@ -142,27 +142,7 @@ More samples can be found in the [examples](https://github.com/ryuapp/commander/
 Commander exports a global object which is convenient for quick programs.
 This is used in the examples in this README for brevity.
 
-```js
-// CommonJS (.cjs)
-const { program } = require("@ryuapp/commander");
-```
-
-For larger programs which may use commander in multiple ways, including unit testing, it is better to create a local Command object to use.
-
-```js
-// CommonJS (.cjs)
-const { Command } = require("@ryuapp/commander");
-const program = new Command();
-```
-
-```js
-// ECMAScript (.mjs)
-import { Command } from "@ryuapp/commander";
-const program = new Command();
-```
-
 ```ts
-// TypeScript (.ts)
 import { Command } from "@ryuapp/commander";
 const program = new Command();
 ```
@@ -1086,7 +1066,7 @@ node -r ts-node/register pm.ts
 This factory function creates a new command. It is exported and may be used instead of using `new`, like:
 
 ```js
-const { createCommand } = require("@ryuapp/commander");
+import { createCommand } from "@ryuapp/commander";
 const program = createCommand();
 ```
 

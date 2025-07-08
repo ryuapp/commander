@@ -1,4 +1,4 @@
-const process = require("node:process");
+import process from "node:process";
 import commander from "../index.js";
 
 // Testing some Electron conventions but not directly using Electron to avoid overheads.

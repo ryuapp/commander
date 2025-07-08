@@ -15,7 +15,6 @@ const {
 } = commander;
 
 // Do some testing of the default export(s).
-// Similar tests to ts-imports.test.ts and esm-imports-test.js.
 
 /* eslint vitest/expect-expect: ["error", { "assertFunctionNames": ["expect", "checkClass"] }] */
 

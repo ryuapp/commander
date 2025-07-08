@@ -1,7 +1,10 @@
-const process = require("node:process");
+import process from "node:process";
 import { vi } from "vitest";
 import commander from "../index.js";
-const path = require("path");
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Test details of the exitOverride errors.
 // The important checks are the exitCode and code which are intended to be stable for
