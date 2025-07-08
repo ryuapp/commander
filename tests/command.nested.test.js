@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { expect, test, vi } from "vitest";
 
 test("when call nested subcommand then runs", () => {
   const program = new commander.Command();

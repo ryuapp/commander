@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
 // Running alias commands is tested in command.executableSubcommand.lookup.test.js
 // Test various other behaviours for .alias

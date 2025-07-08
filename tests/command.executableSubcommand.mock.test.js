@@ -1,5 +1,5 @@
 import process from "node:process";
-import { vi } from "vitest";
+import { expect, test, vi } from "vitest";
 import commander from "../index.js";
 import childProcess from "node:child_process";
 import EventEmitter from "node:events";

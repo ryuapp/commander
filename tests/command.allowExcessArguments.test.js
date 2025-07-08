@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 
 // Not testing output, just testing whether an error is detected.
 

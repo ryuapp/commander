@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 
 // Test combination of flag and --no-flag
 // (single flags tested in options.bool.test.js)

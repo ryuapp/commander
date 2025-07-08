@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { expect, test } from "vitest";
 
 test("when empty string then return empty string", () => {
   const helper = new commander.Help();

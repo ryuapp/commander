@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Command, Option } = commander;
+import { Command, Option } from "../index.js";
+import { describe, expect, test } from "vitest";
 
 // Similar tests for Option.helpGroup() and Command.helpGroup(),
 // and for Command.optionsGroup() and Command.commandsGroup().

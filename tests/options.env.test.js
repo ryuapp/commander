@@ -1,6 +1,7 @@
 import process from "node:process";
-import { vi } from "vitest";
+import { afterEach, vi } from "vitest";
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 
 // treating optional same as required, treat as option taking value rather than as boolean
 describe.each(["-f, --foo <required-arg>", "-f, --foo [optional-arg]"])(

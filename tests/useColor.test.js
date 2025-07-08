@@ -1,5 +1,6 @@
 import process from "node:process";
 import { useColor } from "../lib/command.js";
+import { afterAll, beforeEach, describe, expect, test } from "vitest";
 
 describe("internal useColor environment variable support", () => {
   const holdNoColor = process.env.NO_COLOR;

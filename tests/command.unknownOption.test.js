@@ -1,5 +1,13 @@
 import process from "node:process";
-import { vi } from "vitest";
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  test,
+  vi,
+} from "vitest";
 import commander from "../index.js";
 
 // Checking for detection of unknown options, including regression tests for some past issues.

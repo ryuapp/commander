@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Command, Option } = commander;
+import { Command, Option } from "../index.js";
+import { expect, test } from "vitest";
 
 // Note: setting up shared command configuration in getSuggestion,
 // and looking for possible subcommand 'sub'.

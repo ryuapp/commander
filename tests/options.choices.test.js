@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 
 test("when option argument in choices then option set", () => {
   const program = new commander.Command();

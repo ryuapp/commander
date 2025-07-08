@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Command, Option } = commander;
+import { Command, Option } from "../index.js";
+import { expect, test } from "vitest";
 
 test("when boolean option with string preset used then value is preset", () => {
   const program = new Command();

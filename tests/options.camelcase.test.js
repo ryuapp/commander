@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { expect, test } from "vitest";
 
 // Capitalise the letters of words after dashes, but otherwise preserve case
 

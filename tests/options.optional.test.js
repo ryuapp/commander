@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 
 // option with optional value, no default
 describe("option with optional value, no default", () => {

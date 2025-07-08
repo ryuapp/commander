@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Command, Option } = commander;
+import { Command, Option } from "../index.js";
+import { expect, test } from "vitest";
 
 // It is a reasonable and easy mistake to pass Option to .option(). Detect this
 // and offer advice.

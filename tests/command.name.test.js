@@ -1,6 +1,7 @@
 import process from "node:process";
 import path from "node:path";
 import commander from "../index.js";
+import { expect, test } from "vitest";
 
 test("when construct with name then name is set", () => {
   const program = new commander.Command("foo");

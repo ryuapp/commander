@@ -1,5 +1,5 @@
 import childProcess from "node:child_process";
-import { vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import commander from "../index.js";
 import path from "node:path";
 import util from "node:util";

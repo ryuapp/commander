@@ -1,8 +1,14 @@
 import process from "node:process";
-import { vi } from "vitest";
-import commander from "../index.js";
-
-const { Command, Option } = commander;
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  test,
+  vi,
+} from "vitest";
+import { Command, Option } from "../index.js";
 
 // More complete tests are in command.helpOption.test.js.
 

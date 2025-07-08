@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Help, Command } = commander;
+import { Command, Help } from "../index.js";
+import { describe, expect, test } from "vitest";
 
 describe("preformatted", () => {
   test("when single line then false", () => {

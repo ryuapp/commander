@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Command, Option, Argument } = commander;
+import { Argument, Command, Option } from "../index.js";
+import { describe, expect, test } from "vitest";
 
 // Testing the functions which should chain.
 // parse and parseAsync are tested in command.parse.test.js

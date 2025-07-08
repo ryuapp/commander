@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 
 describe("Help.minWidthToWrap", () => {
   test("when enough width then wrap", () => {

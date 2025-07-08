@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 
 // Testing optsWithGlobals and getOptionValueSourceWithGlobals with focus on globals.
 

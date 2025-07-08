@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
 // The action handler used to be implemented using command events and listeners.
 // Now, this is mostly just for backwards compatibility.

@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Command } = commander;
+import { Command } from "../index.js";
+import { expect, test } from "vitest";
 
 function getSuggestion(program, arg) {
   let message = "";

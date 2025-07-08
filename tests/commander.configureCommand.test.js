@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { expect, test, vi } from "vitest";
 
 // Mostly testing direct on program, limited check that (sub)command working same.
 

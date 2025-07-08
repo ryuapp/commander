@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { expect, test, vi } from "vitest";
 
 function myParseInt(value, _dummyPrevious) {
   // parseInt takes a string and a radix

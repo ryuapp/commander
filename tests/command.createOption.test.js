@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { expect, test } from "vitest";
 
 class MyOption extends commander.Option {
   constructor(flags, description) {

@@ -1,7 +1,15 @@
 import process from "node:process";
 import childProcess from "node:child_process";
 import path from "node:path";
-import { vi } from "vitest";
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  test,
+  vi,
+} from "vitest";
 import commander from "../index.js";
 import { fileURLToPath } from "node:url";
 

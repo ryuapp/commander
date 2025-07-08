@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { expect, test } from "vitest";
 
 test("when default configuration then global options hidden", () => {
   const program = new commander.Command();

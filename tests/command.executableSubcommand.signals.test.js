@@ -2,6 +2,7 @@ import process from "node:process";
 import childProcess from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { describe, expect, test } from "vitest";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const pmPath = path.join(__dirname, "fixtures", "pm");

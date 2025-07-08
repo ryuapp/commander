@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
 describe("variadic option with required value", () => {
   test("when variadic with value missing then error", () => {

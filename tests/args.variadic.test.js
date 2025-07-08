@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
 // Testing variadic arguments. Testing all the action arguments, but could test just variadicArg.
 

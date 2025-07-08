@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Command } = commander;
+import { Command } from "../index.js";
+import { expect, test } from "vitest";
 
 // boolean is whether is a consumable argument when negative numbers allowed
 const negativeNumbers = [

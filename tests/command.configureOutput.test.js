@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import process from "node:process";
 
 test("when default writeErr() then error on stderr", () => {

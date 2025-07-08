@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Command, Option } = commander;
+import { Command, Option } from "../index.js";
+import { describe, expect, test } from "vitest";
 
 describe(".option()", () => {
   test("when short option flag conflicts then throws", () => {

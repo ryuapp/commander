@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
 test("when hook event wrong then throw", () => {
   const program = new commander.Command();
