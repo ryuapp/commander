@@ -51,7 +51,7 @@ describe("program with passThrough", () => {
     program.exitOverride().configureHelp({ formatHelp: mockHelp });
     try {
       program.parse(["--help"], { from: "user" });
-    } catch (err) {
+    } catch (_err) {
       /* empty */
     }
     expect(mockHelp).toHaveBeenCalled();
@@ -137,7 +137,7 @@ describe("program with positionalOptions and subcommand", () => {
 
       try {
         program.parse(userArgs, { from: "user" });
-      } catch (err) {
+      } catch (_err) {
         /* empty */
       }
       expect(mockProgramHelp).toHaveBeenCalledTimes(expectProgramHelpCount);
@@ -205,7 +205,7 @@ describe("program with positionalOptions and default subcommand (called sub)", (
 
       try {
         program.parse(userArgs, { from: "user" });
-      } catch (err) {
+      } catch (_err) {
         /* empty */
       }
       expect(mockProgramHelp).toHaveBeenCalledTimes(expectProgramHelpCount);

@@ -11,8 +11,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // semver minor versions. For now, also testing the error.message and that output occurred
 // to detect accidental changes in behaviour.
 
-/* eslint vitest/expect-expect: ["error", { "assertFunctionNames": ["expect", "expectCommanderError"] }] */
-
 function expectCommanderError(err, exitCode, code, message) {
   expect(err).toBeInstanceOf(commander.CommanderError);
   expect(err.exitCode).toBe(exitCode);
@@ -357,7 +355,7 @@ describe(".exitOverride and error details", () => {
   });
 
   test("when custom processing for option throws InvalidArgumentError then catch CommanderError", () => {
-    function justSayNo(value) {
+    function justSayNo(_value) {
       throw new commander.InvalidArgumentError("NO");
     }
     const optionFlags = "--colour <shade>";
@@ -380,7 +378,7 @@ describe(".exitOverride and error details", () => {
   });
 
   test("when custom processing for argument throws InvalidArgumentError then catch CommanderError", () => {
-    function justSayNo(value) {
+    function justSayNo(_value) {
       throw new commander.InvalidArgumentError("NO");
     }
     const program = new commander.Command();
@@ -451,7 +449,7 @@ test("when no override and error then exit(1)", () => {
 });
 
 test("when custom processing throws custom error then throw custom error", () => {
-  function justSayNo(value) {
+  function justSayNo(_value) {
     throw new Error("custom");
   }
   const program = new commander.Command();

@@ -81,7 +81,7 @@ describe("override style methods and check help information", () => {
     expect(helpText).toEqual(
       plainHelpInformation.replace(
         /(-h, --help *)(display help for command)/,
-        (match, p1, p2) => p1 + red(p2),
+        (_match, p1, p2) => p1 + red(p2),
       ),
     );
   });
@@ -97,11 +97,11 @@ describe("override style methods and check help information", () => {
       plainHelpInformation
         .replace(
           /(\[subarg\] *)(sub description)/,
-          (match, p1, p2) => p1 + red(p2),
+          (_match, p1, p2) => p1 + red(p2),
         )
         .replace(
           /(help \[command\] *)(display help for command)/,
-          (match, p1, p2) => p1 + red(p2),
+          (_match, p1, p2) => p1 + red(p2),
         ),
     );
   });

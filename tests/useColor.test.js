@@ -2,9 +2,9 @@ import process from "node:process";
 import { useColor } from "../lib/command.js";
 
 describe("internal useColor environment variable support", () => {
-  let holdNoColor = process.env.NO_COLOR;
-  let holdForceColor = process.env.FORCE_COLOR;
-  let holdCliColorForce = process.env.CLICOLOR_FORCE;
+  const holdNoColor = process.env.NO_COLOR;
+  const holdForceColor = process.env.FORCE_COLOR;
+  const holdCliColorForce = process.env.CLICOLOR_FORCE;
 
   beforeEach(() => {
     delete process.env.NO_COLOR;

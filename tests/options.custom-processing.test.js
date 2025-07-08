@@ -1,12 +1,12 @@
 import commander from "../index.js";
 import { vi } from "vitest";
 
-function myParseInt(value, dummyPrevious) {
+function myParseInt(value, _dummyPrevious) {
   // parseInt takes a string and a radix
   return parseInt(value, 10);
 }
 
-function increaseVerbosity(dummyValue, previous) {
+function increaseVerbosity(_dummyValue, previous) {
   return previous + 1;
 }
 
@@ -14,7 +14,7 @@ function collect(value, previous) {
   return previous.concat([value]);
 }
 
-function commaSeparatedList(value, dummyPrevious) {
+function commaSeparatedList(value, _dummyPrevious) {
   return value.split(",");
 }
 

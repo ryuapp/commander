@@ -334,7 +334,7 @@ describe("search for subcommand", () => {
 
   describe("search for local file", () => {
     test("when script arg then search for local script-sub.js, .ts, .tsx, .mpjs, .cjs", () => {
-      existsSpy.mockImplementation((path) => false);
+      existsSpy.mockImplementation((_path) => false);
       const program = new commander.Command();
       program._checkForMissingExecutable = () => {}; // suppress error, call mocked spawn
       program.command("sub", "executable description");

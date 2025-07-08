@@ -1,5 +1,10 @@
 {
   "fmt": {
     "proseWrap": "preserve"
+  },
+  "lint": {
+    "exclude": [
+      "./typings/index.d.ts"
+    ]
   }
 }

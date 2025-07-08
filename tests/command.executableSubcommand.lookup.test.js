@@ -31,7 +31,7 @@ beforeAll(async () => {
     const filePath = path.join(__dirname, "fixtures", file);
     try {
       await execFileAsync("chmod", ["+x", filePath]);
-    } catch (error) {
+    } catch (_error) {
       // Ignore chmod errors on Windows or if file doesn't exist
     }
   }
@@ -155,7 +155,7 @@ testOrSkipOnWindows(
       try {
         fs.rmdirSync(path.dirname(anotherDirPm));
         fs.rmdirSync(path.dirname(otherDirPm));
-      } catch (e) {
+      } catch (_e) {
         // Ignore errors if directories are not empty or don't exist
       }
     }

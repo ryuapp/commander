@@ -2,7 +2,7 @@ import { Command } from "commander";
 
 // Layout the help like a man page, with the description starting on the next line.
 
-function formatItem(term, termWidth, description, helper) {
+function formatItem(term, _termWidth, description, helper) {
   const termIndent = 2;
   const descIndent = 6;
   const helpWidth = this.helpWidth || 80;

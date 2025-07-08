@@ -151,7 +151,7 @@ test.each(negativeNumbers)(
       thrown = err.code;
     }
 
-    let consume = value[0] !== "-";
+    const consume = value[0] !== "-";
     expect(thrown).toEqual(consume ? "" : "commander.unknownOption");
     expect(program.opts()["optional"]).toBe(consume ? value : true);
   },
@@ -174,7 +174,7 @@ test.each(negativeNumbers)(
       thrown = err.code;
     }
 
-    let consume = value[0] !== "-";
+    const consume = value[0] !== "-";
     expect(thrown).toEqual(consume ? "" : "commander.unknownOption");
     expect(consume ? program.args : undefined).toEqual(
       consume ? [value] : undefined,
@@ -220,6 +220,8 @@ test("when program has digit option then negatives not allowed in leaf command",
     .exitOverride()
     .configureOutput({ writeErr: () => {} })
     .option("-2", "double option");
+
+  // deno-lint-ignore no-unused-vars
   let leafArgs;
   program
     .command("leaf")

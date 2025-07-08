@@ -16,7 +16,7 @@ function myParseInt(value) {
   return parsedValue;
 }
 
-function increaseVerbosity(dummyValue, previous) {
+function increaseVerbosity(_dummyValue, previous) {
   return previous + 1;
 }
 

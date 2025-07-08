@@ -1,8 +1,6 @@
 // Type definitions for commander
 // Original definitions by: Alan Agius <https://github.com/alan-agius4>, Marcelo Dezem <https://github.com/mdezem>, vvakame <https://github.com/vvakame>, Jules Randolph <https://github.com/sveinburne>
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 // This is a trick to encourage editor to suggest the known literals while still
 // allowing any BaseType value.
 // References:

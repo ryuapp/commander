@@ -6,7 +6,6 @@ import process from "node:process";
 
 const program: commander.Command = new commander.Command();
 // @ts-expect-error Check that Command is strongly typed and does not allow arbitrary properties
-// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 program.silly; // <-- Error, hurrah!
 
 // Check for exported global Command object
@@ -31,7 +30,7 @@ expectType<commander.Argument>(commander.createArgument("<foo>"));
 
 // Command properties
 expectType<string[]>(program.args);
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// deno-lint-ignore no-explicit-any
 expectType<any[]>(program.processedArgs);
 expectType<readonly commander.Command[]>(program.commands);
 expectType<readonly commander.Option[]>(program.options);
@@ -170,7 +169,7 @@ function myParseInt(value: string): number {
   return parseInt(value);
 }
 
-function increaseVerbosity(dummyValue: string, previous: number): number {
+function increaseVerbosity(_dummyValue: string, previous: number): number {
   return previous + 1;
 }
 
@@ -676,7 +675,7 @@ expectType<boolean>(baseOption.mandatory);
 expectType<string | undefined>(baseOption.short);
 expectType<string | undefined>(baseOption.long);
 expectType<boolean>(baseOption.negate);
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// deno-lint-ignore no-explicit-any
 expectType<any>(baseOption.defaultValue);
 expectType<string | undefined>(baseOption.defaultValueDescription);
 expectType<unknown>(baseOption.presetArg);
@@ -749,7 +748,7 @@ const baseArgument = new commander.Argument("<foo");
 expectType<string>(baseArgument.description);
 expectType<boolean>(baseArgument.required);
 expectType<boolean>(baseArgument.variadic);
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// deno-lint-ignore no-explicit-any
 expectType<any>(baseArgument.defaultValue);
 expectType<string | undefined>(baseArgument.defaultValueDescription);
 expectType<string[] | undefined>(baseArgument.argChoices);

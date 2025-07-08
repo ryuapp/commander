@@ -16,8 +16,6 @@ const {
 
 // Do some testing of the default export(s).
 
-/* eslint vitest/expect-expect: ["error", { "assertFunctionNames": ["expect", "checkClass"] }] */
-
 function checkClass(obj, name) {
   expect(typeof obj).toEqual("object");
   expect(obj.constructor.name).toEqual(name);

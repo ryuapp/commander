@@ -23,7 +23,7 @@ describe("optsWithGlobals", () => {
     program
       .command("sub")
       .option("-l, --local <value)")
-      .action((options, cmd) => {
+      .action((_options, cmd) => {
         mergedOptions = cmd.optsWithGlobals();
       });
 
@@ -39,7 +39,7 @@ describe("optsWithGlobals", () => {
       .option("-g, --global <value)")
       .command("subsub")
       .option("-l, --local <value)")
-      .action((options, cmd) => {
+      .action((_options, cmd) => {
         mergedOptions = cmd.optsWithGlobals();
       });
 
@@ -56,7 +56,7 @@ describe("optsWithGlobals", () => {
     program
       .command("sub")
       .option("-c, --common <value)")
-      .action((options, cmd) => {
+      .action((_options, cmd) => {
         mergedOptions = cmd.optsWithGlobals();
       });
 

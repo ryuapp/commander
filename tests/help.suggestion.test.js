@@ -23,7 +23,7 @@ function getSuggestion(program, arg) {
     // Passing in an array for a few of the tests.
     const args = Array.isArray(arg) ? arg : [arg];
     program.parse(args, { from: "user" });
-  } catch (err) {
+  } catch (_err) {
     /* empty */
   }
 

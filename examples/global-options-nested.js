@@ -14,7 +14,7 @@ program.configureHelp({ showGlobalOptions: true }).option("-g, --global");
 program
   .command("sub")
   .option("-l, --local")
-  .action((options, cmd) => {
+  .action((_options, cmd) => {
     console.log({
       opts: cmd.opts(),
       optsWithGlobals: cmd.optsWithGlobals(),
