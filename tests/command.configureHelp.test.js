@@ -31,7 +31,7 @@ test("when configure with unknown property then helper passed to formatHelp has 
   const program = new commander.Command();
   program.configureHelp({
     mySecretValue: "secret",
-    formatHelp: (cmd, helper) => {
+    formatHelp: (_cmd, helper) => {
       return helper.mySecretValue;
     },
   });

@@ -9,7 +9,7 @@ test("when createCommand then unattached", () => {
 
 test("when subclass overrides createCommand then subcommand is subclass", () => {
   class MyClass extends commander.Command {
-    constructor(name) {
+    constructor(_name) {
       super();
       this.myProperty = "myClass";
     }
@@ -24,7 +24,7 @@ test("when subclass overrides createCommand then subcommand is subclass", () => 
 });
 
 test("when override createCommand then subcommand is custom", () => {
-  function createCustom(name) {
+  function createCustom(_name) {
     const cmd = new commander.Command();
     cmd.myProperty = "custom";
     return cmd;

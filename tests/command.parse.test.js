@@ -281,7 +281,7 @@ describe(".parse() called multiple times", () => {
   });
 
   test("when use increaseVerbosity example then option value resets", () => {
-    function increaseVerbosity(dummyValue, previous) {
+    function increaseVerbosity(_dummyValue, previous) {
       return previous + 1;
     }
     const program = new commander.Command();
@@ -392,7 +392,7 @@ describe(".parse() called multiple times", () => {
     let hookCalled = false;
     const program = new commander.Command().hook(
       "preSubcommand",
-      (thisCommand, subcommand) => {
+      (_thisCommand, subcommand) => {
         hookCalled = true;
         expect(subcommand.opts()).toEqual({});
       },

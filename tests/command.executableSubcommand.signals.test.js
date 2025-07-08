@@ -29,7 +29,7 @@ describeOrSkipOnWindows("signals", () => {
           }
           processOutput += data.toString();
         });
-        proc.on("close", (code) => {
+        proc.on("close", (_code) => {
           // Check the child subcommand received the signal too.
           expect(processOutput).toBe(`Listening for signal...${signal}`);
           resolve();

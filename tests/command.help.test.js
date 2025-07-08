@@ -69,7 +69,7 @@ test("when call help(cb) then display cb output and exit", () => {
   const program = new commander.Command();
   program.exitOverride();
   expect(() => {
-    program.help((helpInformation) => {
+    program.help((_helpInformation) => {
       return helpReplacement;
     });
   }).toThrow("(outputHelp)");
@@ -84,7 +84,7 @@ test("when call outputHelp(cb) then display cb output", () => {
     .mockImplementation(() => {});
   const helpReplacement = "reformatted help";
   const program = new commander.Command();
-  program.outputHelp((helpInformation) => {
+  program.outputHelp((_helpInformation) => {
     return helpReplacement;
   });
   expect(writeSpy).toHaveBeenCalledWith(helpReplacement);
@@ -94,7 +94,7 @@ test("when call outputHelp(cb) then display cb output", () => {
 test("when call deprecated outputHelp(cb) with wrong callback return type then throw", () => {
   const program = new commander.Command();
   expect(() => {
-    program.outputHelp((helpInformation) => 3);
+    program.outputHelp((_helpInformation) => 3);
   }).toThrow();
 });
 

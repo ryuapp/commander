@@ -20,13 +20,13 @@
   "scripts": {
     "check": "npm run check:type && npm run check:lint && npm run check:format",
     "check:format": "deno fmt --check",
-    "check:lint": "eslint .",
+    "check:lint": "deno lint",
     "check:type": "npm run check:type:js && npm run check:type:ts",
     "check:type:ts": "tsd && tsc -p tsconfig.ts.json",
     "check:type:js": "tsc -p tsconfig.js.json",
     "fix": "npm run fix:lint && npm run fix:format",
     "fix:format": "deno fmt",
-    "fix:lint": "eslint --fix .",
+    "fix:lint": "deno lint --fix",
     "test": "vitest run && npm run check:type:ts",
     "test-all": "vitest run && npm run test-esm && npm run check",
     "test-esm": "node ./tests/esm-imports-test.mjs"
@@ -41,14 +41,11 @@
   "exports": "./index.js",
   "types": "typings/index.d.ts",
   "devDependencies": {
-    "@eslint/js": "^9.4.0",
     "@types/node": "^22.7.4",
-    "@vitest/eslint-plugin": "^1.3.4",
-    "eslint": "^9.17.0",
+    "@vitest/coverage-v8": "^3.2.4",
     "globals": "^16.0.0",
     "tsd": "^0.31.0",
     "typescript": "^5.0.4",
-    "typescript-eslint": "^8.12.2",
     "vitest": "^3.2.4"
   },
   "engines": {

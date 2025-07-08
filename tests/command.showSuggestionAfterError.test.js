@@ -12,7 +12,7 @@ function getSuggestion(program, arg) {
 
   try {
     program.parse([arg], { from: "user" });
-  } catch (err) {
+  } catch (_err) {
     /* empty */
   }
 

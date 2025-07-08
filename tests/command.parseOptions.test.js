@@ -18,7 +18,7 @@ describe("regression tests", () => {
     program
       .command("doit [id]")
       .option("--better", "do it better")
-      .action((id, cmd) => {});
+      .action((_id, _cmd) => {});
     return program;
   }
 

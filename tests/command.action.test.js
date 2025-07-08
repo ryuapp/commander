@@ -32,7 +32,7 @@ test("when .action called then program.args only contains args", () => {
 
 test.each(getTestCases("<file>"))(
   "when .action on program with required argument via %s and argument supplied then action called",
-  (methodName, program) => {
+  (_methodName, program) => {
     const actionMock = vi.fn();
     program.action(actionMock);
     program.parse(["node", "test", "my-file"]);
@@ -42,7 +42,7 @@ test.each(getTestCases("<file>"))(
 
 test.each(getTestCases("<file>"))(
   "when .action on program with required argument via %s and argument not supplied then action not called",
-  (methodName, program) => {
+  (_methodName, program) => {
     const actionMock = vi.fn();
     program
       .exitOverride()
@@ -66,7 +66,7 @@ test("when .action on program and no arguments then action called", () => {
 
 test.each(getTestCases("[file]"))(
   "when .action on program with optional argument via %s supplied then action called",
-  (methodName, program) => {
+  (_methodName, program) => {
     const actionMock = vi.fn();
     program.action(actionMock);
     program.parse(["node", "test", "my-file"]);
@@ -76,7 +76,7 @@ test.each(getTestCases("[file]"))(
 
 test.each(getTestCases("[file]"))(
   "when .action on program without optional argument supplied then action called",
-  (methodName, program) => {
+  (_methodName, program) => {
     const actionMock = vi.fn();
     program.action(actionMock);
     program.parse(["node", "test"]);
@@ -86,7 +86,7 @@ test.each(getTestCases("[file]"))(
 
 test.each(getTestCases("[file]"))(
   "when .action on program with optional argument via %s and subcommand and program argument then program action called",
-  (methodName, program) => {
+  (_methodName, program) => {
     const actionMock = vi.fn();
     program.action(actionMock);
     program.command("subcommand");
@@ -100,7 +100,7 @@ test.each(getTestCases("[file]"))(
 // Changes made in #1062 to allow this case
 test.each(getTestCases("[file]"))(
   "when .action on program with optional argument via %s and subcommand and no program argument then program action called",
-  (methodName, program) => {
+  (_methodName, program) => {
     const actionMock = vi.fn();
     program.action(actionMock);
     program.command("subcommand");

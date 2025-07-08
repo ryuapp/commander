@@ -2,7 +2,7 @@ import commander from "../index.js";
 
 test("when override createCommand then affects help", () => {
   class MyHelp extends commander.Help {
-    formatHelp(cmd, helper) {
+    formatHelp(_cmd, _helper) {
       return "custom";
     }
   }

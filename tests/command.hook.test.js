@@ -156,7 +156,7 @@ describe("action hooks context", () => {
   test("when hook program on preAction and call sub then actionCommand has sub options set", () => {
     expect.assertions(1);
     const program = new commander.Command();
-    program.hook("preAction", (thisCommand, actionCommand) => {
+    program.hook("preAction", (_thisCommand, actionCommand) => {
       expect(actionCommand.opts().debug).toEqual(true);
     });
     program
@@ -171,7 +171,7 @@ describe("action hooks context", () => {
     const program = new commander.Command();
     program
       .argument("[arg]")
-      .hook("preAction", (thisCommand, actionCommand) => {
+      .hook("preAction", (_thisCommand, actionCommand) => {
         expect(actionCommand.args).toEqual(["value"]);
       })
       .action(() => {});
@@ -184,7 +184,7 @@ describe("action hooks context", () => {
     program
       .argument("[arg]")
       .option("--debug")
-      .hook("preAction", (thisCommand, actionCommand) => {
+      .hook("preAction", (_thisCommand, actionCommand) => {
         expect(actionCommand.args).toEqual(["value"]);
       })
       .action(() => {});
@@ -207,7 +207,7 @@ describe("action hooks context", () => {
   test("when hook program on preAction and call sub then actionCommand has sub args set", () => {
     expect.assertions(1);
     const program = new commander.Command();
-    program.hook("preAction", (thisCommand, actionCommand) => {
+    program.hook("preAction", (_thisCommand, actionCommand) => {
       expect(actionCommand.args).toEqual(["value"]);
     });
     program
@@ -361,7 +361,7 @@ describe("action hooks async", () => {
   test("preSubcommand hook should effective for direct subcommands", async () => {
     const calls = [];
     const program = new commander.Command();
-    program.hook("preSubcommand", async (thisCommand, subCommand) => {
+    program.hook("preSubcommand", async (_thisCommand, subCommand) => {
       await "preSubcommand";
       calls.push("preSubcommand");
       calls.push(subCommand.name());

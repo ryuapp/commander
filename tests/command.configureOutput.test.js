@@ -11,7 +11,7 @@ test("when default writeErr() then error on stderr", () => {
 
   try {
     program.parse(["--unknown"], { from: "user" });
-  } catch (err) {
+  } catch (_err) {
     /* empty */
   }
 
@@ -29,7 +29,7 @@ test("when custom writeErr() then error on custom output", () => {
 
   try {
     program.parse(["--unknown"], { from: "user" });
-  } catch (err) {
+  } catch (_err) {
     /* empty */
   }
 
@@ -134,7 +134,7 @@ test("when default getOutHelpWidth then help helpWidth from stdout", () => {
   process.stdout.isTTY = true;
   const program = new commander.Command();
   program.configureHelp({
-    formatHelp: (cmd, helper) => {
+    formatHelp: (_cmd, helper) => {
       helpWidth = helper.helpWidth;
       return "";
     },
@@ -153,7 +153,7 @@ test("when custom getOutHelpWidth then help helpWidth custom", () => {
   const program = new commander.Command();
   program
     .configureHelp({
-      formatHelp: (cmd, helper) => {
+      formatHelp: (_cmd, helper) => {
         helpWidth = helper.helpWidth;
         return "";
       },
@@ -176,7 +176,7 @@ test("when default getErrHelpWidth then help error helpWidth from stderr", () =>
   process.stderr.columns = expectedColumns;
   const program = new commander.Command();
   program.configureHelp({
-    formatHelp: (cmd, helper) => {
+    formatHelp: (_cmd, helper) => {
       helpWidth = helper.helpWidth;
       return "";
     },
@@ -195,7 +195,7 @@ test("when custom getErrHelpWidth then help error helpWidth custom", () => {
   const program = new commander.Command();
   program
     .configureHelp({
-      formatHelp: (cmd, helper) => {
+      formatHelp: (_cmd, helper) => {
         helpWidth = helper.helpWidth;
         return "";
       },
@@ -215,7 +215,7 @@ test("when custom getOutHelpWidth and configureHelp:helpWidth then help helpWidt
   const program = new commander.Command();
   program
     .configureHelp({
-      formatHelp: (cmd, helper) => {
+      formatHelp: (_cmd, helper) => {
         helpWidth = helper.helpWidth;
         return "";
       },
@@ -236,7 +236,7 @@ test("when custom getErrHelpWidth and configureHelp:helpWidth then help error he
   const program = new commander.Command();
   program
     .configureHelp({
-      formatHelp: (cmd, helper) => {
+      formatHelp: (_cmd, helper) => {
         helpWidth = helper.helpWidth;
         return "";
       },
@@ -254,7 +254,7 @@ test("when no custom setup and call formatHelp direct then effective helpWidth i
   // Not an important case, but filling out testing coverage.
   const helper = new commander.Help();
   let wrapWidth;
-  helper.boxWrap = (str, width) => {
+  helper.boxWrap = (_str, width) => {
     wrapWidth = wrapWidth ?? width;
     return "";
   };
@@ -269,7 +269,7 @@ test("when no custom setup and call formatItem direct then effective helpWidth i
   // Not an important case, but filling out testing coverage.
   const helper = new commander.Help();
   let wrapWidth;
-  helper.boxWrap = (str, width) => {
+  helper.boxWrap = (_str, width) => {
     wrapWidth = wrapWidth ?? width;
     return "";
   };
@@ -355,7 +355,7 @@ describe.each([["getOutHasColors"], ["getErrHasColors"]])(
       [true, "NO_COLOR", false],
       [false, "FORCE_COLOR", true],
       [false, "CLICOLOR_FORCE", true],
-    ])("when isTTY=%o but %s then returns %o", (isTTY, envvar, result) => {
+    ])("when isTTY=%o but %s then returns %o", (_isTTY, envvar, result) => {
       const holdEnv = process.env[envvar];
       process.env[envvar] = "1";
       expect(getHasColors()).toBe(result);

@@ -21,18 +21,18 @@ function inspectCommand(command) {
 
 const program = new CommandWithTrace("program")
   .option("-v, ---verbose")
-  .action((options, command) => {
+  .action((_options, command) => {
     inspectCommand(command);
   });
 
 program
   .command("serve [params...]")
   .option("-p, --port <number>", "port number")
-  .action((params, options, command) => {
+  .action((_params, _options, command) => {
     inspectCommand(command);
   });
 
-program.command("build <target>").action((buildTarget, options, command) => {
+program.command("build <target>").action((_buildTarget, _options, command) => {
   inspectCommand(command);
 });
 

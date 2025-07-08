@@ -5,7 +5,7 @@ import commander from "../index.js";
 
 test.each(getSingleArgCases("<explicit-required>"))(
   'when add "<arg>" using %s then argument required',
-  (methodName, cmd) => {
+  (_methodName, cmd) => {
     const argument = cmd.registeredArguments[0];
     const expectedShape = {
       _name: "explicit-required",
@@ -19,7 +19,7 @@ test.each(getSingleArgCases("<explicit-required>"))(
 
 test.each(getSingleArgCases("implicit-required"))(
   'when add "arg" using %s then argument required',
-  (methodName, cmd) => {
+  (_methodName, cmd) => {
     const argument = cmd.registeredArguments[0];
     const expectedShape = {
       _name: "implicit-required",
@@ -33,7 +33,7 @@ test.each(getSingleArgCases("implicit-required"))(
 
 test.each(getSingleArgCases("[optional]"))(
   'when add "[arg]" using %s then argument optional',
-  (methodName, cmd) => {
+  (_methodName, cmd) => {
     const argument = cmd.registeredArguments[0];
     const expectedShape = {
       _name: "optional",
@@ -47,7 +47,7 @@ test.each(getSingleArgCases("[optional]"))(
 
 test.each(getSingleArgCases("<explicit-required...>"))(
   'when add "<arg...>" using %s then argument required and variadic',
-  (methodName, cmd) => {
+  (_methodName, cmd) => {
     const argument = cmd.registeredArguments[0];
     const expectedShape = {
       _name: "explicit-required",
@@ -61,7 +61,7 @@ test.each(getSingleArgCases("<explicit-required...>"))(
 
 test.each(getSingleArgCases("implicit-required..."))(
   'when add "arg..." using %s then argument required and variadic',
-  (methodName, cmd) => {
+  (_methodName, cmd) => {
     const argument = cmd.registeredArguments[0];
     const expectedShape = {
       _name: "implicit-required",
@@ -75,7 +75,7 @@ test.each(getSingleArgCases("implicit-required..."))(
 
 test.each(getSingleArgCases("[optional...]"))(
   'when add "[arg...]" using %s then argument optional and variadic',
-  (methodName, cmd) => {
+  (_methodName, cmd) => {
     const argument = cmd.registeredArguments[0];
     const expectedShape = {
       _name: "optional",
@@ -103,7 +103,7 @@ function getSingleArgCases(arg) {
 
 test.each(getMultipleArgCases("<first>", "[second]"))(
   "when add two arguments using %s then two arguments",
-  (methodName, cmd) => {
+  (_methodName, cmd) => {
     expect(cmd.registeredArguments[0].name()).toEqual("first");
     expect(cmd.registeredArguments[1].name()).toEqual("second");
   },
