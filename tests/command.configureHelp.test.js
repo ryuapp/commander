@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { expect, test } from "vitest";
 
 test("when configure program then affects program helpInformation", () => {
   const program = new commander.Command();

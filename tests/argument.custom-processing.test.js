@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { expect, test, vi } from "vitest";
 
 // Testing default value and custom processing behaviours.
 // Some double assertions in tests to check action argument and .processedArg

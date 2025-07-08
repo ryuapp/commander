@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Command } = commander;
+import { Command } from "../index.js";
+import { describe, expect, test } from "vitest";
 
 function red(str) {
   // Use plain characters so not stripped in Jest failure messages. (Means displayWidth is bogus though.)

@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { expect, test, vi } from "vitest";
 
 // Test some behaviours of .action not covered in more specific tests.
 

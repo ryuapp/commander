@@ -1,5 +1,6 @@
 import childProcess from "node:child_process";
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 import path from "node:path";
 import util from "node:util";
 import { fileURLToPath } from "node:url";

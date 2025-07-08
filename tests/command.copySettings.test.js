@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
 // Tests some private properties as simpler than pure tests of observable behaviours.
 // Testing before and after values in some cases, to ensure value actually changes (when copied).

@@ -1,7 +1,6 @@
 import process from "node:process";
-import commander from "../index.js";
-
-const { Command, Option } = commander;
+import { Command, Option } from "../index.js";
+import { describe, expect, test } from "vitest";
 
 describe("check priorities", () => {
   test("when source undefined and implied undefined then implied is undefined", () => {

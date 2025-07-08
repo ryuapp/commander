@@ -1,6 +1,14 @@
 import process from "node:process";
-import { vi } from "vitest";
 import commander from "../index.js";
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  test,
+  vi,
+} from "vitest";
 
 // Assuming mandatory options behave as normal options apart from the mandatory aspect, not retesting all behaviour.
 // Likewise, not redoing all tests on subcommand after testing on program.

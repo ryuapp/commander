@@ -1,7 +1,6 @@
 import { DualOptions, Option } from "../lib/option.js";
-import commander from "../index.js";
-
-const { Command } = commander;
+import { Command } from "../index.js";
+import { describe, expect, test } from "vitest";
 
 // This tests an internal helper class which is not currently exposed on the package.
 

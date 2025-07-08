@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
 describe("showHelpAfterError with message", () => {
   const customHelpMessage = "See --help";

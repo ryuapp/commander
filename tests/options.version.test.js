@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
 // Test .version. Using exitOverride to check behaviour (instead of mocking process.exit).
 

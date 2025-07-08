@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 
 // Test the `.opts()` way of accessing option values.
 // Basic coverage of the main option types (leaving out negatable flags and options with optional values).

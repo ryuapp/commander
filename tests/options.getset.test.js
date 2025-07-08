@@ -1,5 +1,6 @@
 import process from "node:process";
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 
 describe.each([true, false])(
   "storeOptionsAsProperties is %s",

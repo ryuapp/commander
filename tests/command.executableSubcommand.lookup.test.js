@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import util from "node:util";
 import { fileURLToPath } from "node:url";
+import { beforeAll, expect, test } from "vitest";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execFileAsync = util.promisify(childProcess.execFile);

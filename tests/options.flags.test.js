@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { expect, test } from "vitest";
 
 // Test the various ways flags can be specified in the first parameter to `.option`
 

@@ -1,5 +1,5 @@
 import process from "node:process";
-import { vi } from "vitest";
+import { expect, test, vi } from "vitest";
 import commander from "../index.js";
 
 // Testing various help incantations.

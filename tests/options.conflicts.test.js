@@ -1,5 +1,5 @@
 import process from "node:process";
-import { vi } from "vitest";
+import { beforeEach, describe, expect, test, vi } from "vitest";
 import path from "node:path";
 import commander from "../index.js";
 import { fileURLToPath } from "node:url";

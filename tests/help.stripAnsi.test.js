@@ -1,4 +1,5 @@
 import { stripColor } from "../lib/help.js";
+import { expect, test } from "vitest";
 
 // https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters
 

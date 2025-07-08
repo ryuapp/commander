@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { expect, test } from "vitest";
 
 test("when default usage and check program help then starts with default usage", () => {
   const program = new commander.Command();

@@ -1,5 +1,5 @@
 import process from "node:process";
-import { vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import commander from "../index.js";
 
 // .command('*') is the old main/default command handler. It adds a listener

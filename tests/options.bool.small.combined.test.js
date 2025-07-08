@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { expect, test } from "vitest";
 
 test("when when multiple short flags specified then all values are true", () => {
   const program = new commander.Command();

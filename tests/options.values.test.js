@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 
 // Test the ways values can be specified for options.
 // See also references on "Utility Conventions" in command.parseOptions.test.js

@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Command } = commander;
+import { Command } from "../index.js";
+import { expect, test } from "vitest";
 
 test("when command name conflicts with existing name then throw", () => {
   expect(() => {

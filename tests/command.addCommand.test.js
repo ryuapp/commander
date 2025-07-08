@@ -1,5 +1,5 @@
 import commander from "../index.js";
-import { vi } from "vitest";
+import { expect, test, vi } from "vitest";
 
 // simple sanity check subcommand works
 test("when addCommand and specify subcommand then called", () => {

@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { describe, expect, test } from "vitest";
 
 // Test simple flag and negatable flag
 

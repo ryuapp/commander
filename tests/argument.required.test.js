@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { expect, test } from "vitest";
 
 // Low-level tests of setting Argument.required.
 // Higher level tests of optional/required arguments elsewhere.

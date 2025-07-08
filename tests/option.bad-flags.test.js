@@ -1,6 +1,5 @@
-import commander from "../index.js";
-
-const { Option } = commander;
+import { Option } from "../index.js";
+import { expect, test } from "vitest";
 
 // Check that unsupported flags throw.
 test.each([

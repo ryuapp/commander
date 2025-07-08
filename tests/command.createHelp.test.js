@@ -1,4 +1,5 @@
 import commander from "../index.js";
+import { expect, test } from "vitest";
 
 test("when override createCommand then affects help", () => {
   class MyHelp extends commander.Help {
