@@ -5,7 +5,7 @@
 //    You can specify an option which functions as a flag but may also take a value (declared using square brackets).
 
 import process from "node:process";
-const commander = require("commander");
+import commander from "@ryuapp/commander";
 const program = new commander.Command();
 
 program.option("-c, --cheese [type]", "Add cheese with optional type");

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const commander = require("commander");
+import commander from "@ryuapp/commander";
 
 // Use a class override to customise the command and its subcommands.
 

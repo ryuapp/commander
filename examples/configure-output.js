@@ -1,5 +1,5 @@
 import process from "node:process";
-const commander = require("commander");
+import commander from "@ryuapp/commander";
 const program = new commander.Command();
 
 function errorColor(str) {

@@ -1,4 +1,4 @@
-const commander = require("commander");
+import commander from "@ryuapp/commander";
 
 // By default the subcommand list includes a fairly simple usage. If you have added a custom usage
 // to the subcommands you may wish to configure the help to show these instead.

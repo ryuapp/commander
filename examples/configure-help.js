@@ -1,4 +1,4 @@
-const commander = require("commander");
+import commander from "@ryuapp/commander";
 const program = new commander.Command();
 
 // This example shows a simple use of configureHelp.

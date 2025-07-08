@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { Command } = require("commander");
+import { Command } from "@ryuapp/commander";
 const program = new Command();
 
 program

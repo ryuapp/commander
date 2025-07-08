@@ -4,7 +4,7 @@
 //    Custom argument processing
 //    You may specify a function to do custom processing of argument values.
 
-const commander = require("commander");
+import commander from "@ryuapp/commander";
 const program = new commander.Command();
 
 function myParseInt(value) {

@@ -3,7 +3,7 @@
 // This is used as an example in the README for:
 //    Default option value
 
-const commander = require("commander");
+import commander from "@ryuapp/commander";
 const program = new commander.Command();
 
 program.option(
