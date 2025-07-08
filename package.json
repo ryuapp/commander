@@ -2,6 +2,24 @@
   "name": "@ryuapp/commander",
   "version": "0.0.0",
   "description": "A solution for JavaScript command-line interfaces",
+  "license": "MIT",
+  "repository": "ryuapp/enogu",
+  "type": "module",
+  "main": "./index.js",
+  "exports": "./index.js",
+  "types": "./typings/index.d.ts",
+  "devDependencies": {
+    "@types/node": "22.15.3",
+    "@vitest/coverage-v8": "3.2.4",
+    "tsd": "0.31.2",
+    "typescript": "5.8.3",
+    "vitest": "3.2.4"
+  },
+  "files": [
+    "index.js",
+    "lib/*.js",
+    "typings/index.d.ts"
+  ],
   "keywords": [
     "commander",
     "command",
@@ -12,11 +30,6 @@
     "args",
     "argv"
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ryuapp/commander.git"
-  },
   "scripts": {
     "check": "npm run check:type && npm run check:lint && npm run check:format",
     "check:format": "deno fmt --check",
@@ -30,23 +43,6 @@
     "test": "vitest run && npm run check:type:ts",
     "test-all": "vitest run && npm run test-esm && npm run check",
     "test-esm": "node ./tests/esm-imports-test.mjs"
-  },
-  "files": [
-    "index.js",
-    "lib/*.js",
-    "typings/index.d.ts"
-  ],
-  "type": "module",
-  "main": "./index.js",
-  "exports": "./index.js",
-  "types": "typings/index.d.ts",
-  "devDependencies": {
-    "@types/node": "^22.7.4",
-    "@vitest/coverage-v8": "^3.2.4",
-    "globals": "^16.0.0",
-    "tsd": "^0.31.0",
-    "typescript": "^5.0.4",
-    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=20"
